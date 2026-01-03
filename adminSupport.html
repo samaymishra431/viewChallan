@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+   <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      <title>Admin Help &amp; Support - Challan System</title>
+      <link href="https://fonts.googleapis.com" rel="preconnect"/>
+      <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+      <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+      <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+      <script id="tailwind-config">
+         tailwind.config = {
+             darkMode: "class",
+             theme: {
+                 extend: {
+                     colors: {
+                         "primary": "#135bec",
+                         "primary-hover": "#0e4bca",
+                         "background-light": "#f6f6f8",
+                         "background-dark": "#101622",
+                         "card-light": "#ffffff",
+                         "card-dark": "#1a2230",
+                         "text-main": "#111318",
+                         "text-secondary": "#616f89",
+                     },
+                     fontFamily: {
+                         "display": ["Public Sans", "sans-serif"]
+                     },
+                     borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                 },
+             },
+         }
+      </script>
+      <style>
+         ::-webkit-scrollbar {
+         width: 6px;
+         height: 6px;
+         }
+         ::-webkit-scrollbar-track {
+         background: transparent;
+         }
+         ::-webkit-scrollbar-thumb {
+         background: #cbd5e1;
+         border-radius: 3px;
+         }
+         .dark ::-webkit-scrollbar-thumb {
+         background: #334155;
+         }
+      </style>
+   </head>
+   <body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-gray-100 transition-colors duration-200">
+      <div class="flex h-screen overflow-hidden">
+         <aside class="w-64 flex-shrink-0 bg-card-light dark:bg-card-dark border-r border-gray-200 dark:border-gray-800 flex flex-col transition-colors duration-200 z-20 hidden lg:flex">
+            <div class="h-16 flex items-center px-6 border-b border-gray-100 dark:border-gray-800">
+               <div class="flex flex-col">
+                  <h1 class="text-primary text-lg font-bold leading-none">Challan Admin</h1>
+                  <span class="text-text-secondary dark:text-gray-400 text-xs mt-1">Management System</span>
+               </div>
+            </div>
+            <nav class="flex-1 overflow-y-auto py-4 px-3 space-y-1">
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminDashboard.html">
+               <span class="material-symbols-outlined text-[20px] font-medium">dashboard</span>
+               <span class="text-sm font-semibold">Dashboard</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="users.html">
+               <span class="material-symbols-outlined text-[20px]">group</span>
+               <span class="text-sm font-medium">Users</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminVehicles.html">
+               <span class="material-symbols-outlined text-[20px]">directions_car</span>
+               <span class="text-sm font-medium">Vehicles</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminChallans.html">
+               <span class="material-symbols-outlined text-[20px]">receipt_long</span>
+               <span class="text-sm font-medium">Challans</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="advocates.html">
+               <span class="material-symbols-outlined text-[20px]">gavel</span>
+               <span class="text-sm font-medium">Advocates</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="settlements.html">
+               <span class="material-symbols-outlined text-[20px]">payments</span>
+               <span class="text-sm font-medium">Settlements</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminPayments.html">
+               <span class="material-symbols-outlined text-[20px]">history</span>
+               <span class="text-sm font-medium">Payment History</span>
+               </a>
+               <div class="pt-4 mt-4 border-t border-gray-100 dark:border-gray-800">
+                  <p class="px-3 text-xs font-semibold text-text-secondary dark:text-gray-500 uppercase tracking-wider mb-2">System</p>
+                  <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="auditLog.html">
+                  <span class="material-symbols-outlined text-[20px]">history_edu</span>
+                  <span class="text-sm font-medium">Admin Audit Log</span>
+                  </a>
+                  <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminProfile.html">
+                  <span class="material-symbols-outlined text-[20px]">person</span>
+                  <span class="text-sm font-medium">Profile</span>
+                  </a>
+                  <!-- <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="setting.html">
+                     <span class="material-symbols-outlined text-[20px]">settings</span>
+                     <span class="text-sm font-medium">Settings</span>
+                     </a> -->
+                  <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary group transition-all" href="adminSupport.html">
+                  <span class="material-symbols-outlined text-[20px]">help</span>
+                  <span class="text-sm font-medium">Help &amp; Support</span>
+                  </a>
+               </div>
+            </nav>
+            <div class="p-4 border-t border-gray-100 dark:border-gray-800">
+               <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">A</div>
+                  <div class="flex flex-col">
+                     <span class="text-sm font-medium text-text-main dark:text-gray-200">Admin User</span>
+                     <span class="text-xs text-text-secondary dark:text-gray-400">admin@system.com</span>
+                  </div>
+               </div>
+            </div>
+         </aside>
+         <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+            <header class="h-16 flex items-center justify-between bg-card-light dark:bg-card-dark border-b border-gray-200 dark:border-gray-800 px-6 lg:px-8 z-10">
+               <div class="flex items-center gap-4 lg:hidden">
+                  <button class="text-text-secondary dark:text-gray-400 hover:text-primary">
+                  <span class="material-symbols-outlined">menu</span>
+                  </button>
+                  <span class="font-bold text-lg text-text-main dark:text-white">Admin</span>
+               </div>
+               <div class="hidden lg:flex flex-1 max-w-lg">
+                  <div class="relative w-full">
+                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <span class="material-symbols-outlined text-text-secondary dark:text-gray-500 text-[20px]">search</span>
+                     </div>
+                     <input class="block w-full pl-10 pr-3 py-2 border-none rounded-lg bg-background-light dark:bg-gray-800 text-sm placeholder-text-secondary dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 text-text-main dark:text-white" placeholder="Search Help Tickets, Users..." type="text"/>
+                  </div>
+               </div>
+               <div class="flex items-center gap-4 ml-4">
+                  <button class="relative p-2 rounded-full text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                  <span class="material-symbols-outlined text-[22px]">notifications</span>
+                  <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-card-dark"></span>
+                  </button>
+                  <div class="w-9 h-9 rounded-full bg-cover bg-center border border-gray-200 dark:border-gray-700 cursor-pointer" data-alt="User profile picture showing a smiling person" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBUc2B9WegD0MYu041RJdchtI7XLk-6zCH4zGvJdQg-oroY7cipYX62vu_2Xh-D737vW7C5vbwuKFkN511WEKiYc36GiESqQuGDA3vbuKqIeehfiGwjLegRBxR6bRDxBU5jPcQAWpmsFwXY-N6tMl7mc-Hpccjblc15geDK6Y-SLBxkCbgf_EvU8-kgTG1EzBp17Qq21YmUXc8NZ_K9WvqljGTYybgH0BzjNfk0-oN3ze8BpCL6NA6TU4nqfFPhkBe7SnbZmGi2zWM');"></div>
+               </div>
+            </header>
+            <main class="flex-1 overflow-y-auto p-4 lg:p-8 scroll-smooth">
+               <div class="max-w-7xl mx-auto flex flex-col gap-6">
+                  <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                     <div>
+                        <h2 class="text-2xl font-bold text-text-main dark:text-white tracking-tight">Help &amp; Support</h2>
+                        <p class="text-text-secondary dark:text-gray-400 mt-1">Manage, assign, and resolve user support tickets.</p>
+                     </div>
+                     <div class="flex gap-3">
+                        <button class="bg-white dark:bg-card-dark border border-gray-200 dark:border-gray-700 text-text-secondary dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">file_upload</span>
+                        Export CSV
+                        </button>
+                        <button class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm shadow-primary/30 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">add</span>
+                        Create Ticket
+                        </button>
+                     </div>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                     <div class="bg-card-light dark:bg-card-dark p-4 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm flex items-center justify-between">
+                        <div>
+                           <p class="text-text-secondary dark:text-gray-400 text-xs font-medium uppercase">Open Tickets</p>
+                           <h3 class="text-2xl font-bold text-text-main dark:text-white mt-1">24</h3>
+                        </div>
+                        <div class="p-2 bg-orange-50 dark:bg-orange-900/20 rounded-lg text-orange-600">
+                           <span class="material-symbols-outlined text-[20px]">warning</span>
+                        </div>
+                     </div>
+                     <div class="bg-card-light dark:bg-card-dark p-4 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm flex items-center justify-between">
+                        <div>
+                           <p class="text-text-secondary dark:text-gray-400 text-xs font-medium uppercase">In Progress</p>
+                           <h3 class="text-2xl font-bold text-text-main dark:text-white mt-1">12</h3>
+                        </div>
+                        <div class="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-blue-600">
+                           <span class="material-symbols-outlined text-[20px]">pending_actions</span>
+                        </div>
+                     </div>
+                     <div class="bg-card-light dark:bg-card-dark p-4 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm flex items-center justify-between">
+                        <div>
+                           <p class="text-text-secondary dark:text-gray-400 text-xs font-medium uppercase">Resolved Today</p>
+                           <h3 class="text-2xl font-bold text-text-main dark:text-white mt-1">45</h3>
+                        </div>
+                        <div class="p-2 bg-green-50 dark:bg-green-900/20 rounded-lg text-green-600">
+                           <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                        </div>
+                     </div>
+                     <div class="bg-card-light dark:bg-card-dark p-4 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm flex items-center justify-between">
+                        <div>
+                           <p class="text-text-secondary dark:text-gray-400 text-xs font-medium uppercase">Avg Response</p>
+                           <h3 class="text-2xl font-bold text-text-main dark:text-white mt-1">2h 15m</h3>
+                        </div>
+                        <div class="p-2 bg-purple-50 dark:bg-purple-900/20 rounded-lg text-purple-600">
+                           <span class="material-symbols-outlined text-[20px]">schedule</span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="bg-card-light dark:bg-card-dark p-4 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
+                     <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
+                        <div class="relative w-full md:w-96">
+                           <span class="material-symbols-outlined absolute left-3 top-2.5 text-gray-400 text-[20px]">search</span>
+                           <input class="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 text-text-main dark:text-white" placeholder="Search by Ticket ID, User, or Subject..." type="text"/>
+                        </div>
+                        <div class="flex w-full md:w-auto gap-3 overflow-x-auto pb-2 md:pb-0">
+                           <select class="bg-background-light dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg text-sm px-3 py-2 text-text-main dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-pointer min-w-[130px]">
+                              <option value="">All Status</option>
+                              <option value="new">New</option>
+                              <option value="progress">In Progress</option>
+                              <option value="resolved">Resolved</option>
+                           </select>
+                           <select class="bg-background-light dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg text-sm px-3 py-2 text-text-main dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-pointer min-w-[130px]">
+                              <option value="">All Priority</option>
+                              <option value="high">High</option>
+                              <option value="medium">Medium</option>
+                              <option value="low">Low</option>
+                           </select>
+                           <div class="h-9 w-px bg-gray-200 dark:bg-gray-700 hidden md:block"></div>
+                           <button class="px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-800 text-text-secondary dark:text-gray-400 transition-colors flex items-center gap-2 whitespace-nowrap">
+                           <span class="material-symbols-outlined text-[18px]">filter_list</span>
+                           <span>More Filters</span>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="bg-card-light dark:bg-card-dark rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden flex-1 flex flex-col">
+                     <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                           <thead>
+                              <tr class="bg-gray-50/50 dark:bg-gray-800/30 text-xs uppercase tracking-wider text-text-secondary dark:text-gray-400 border-b border-gray-200 dark:border-gray-800">
+                                 <th class="px-6 py-4 font-semibold w-64">Subject &amp; ID</th>
+                                 <th class="px-6 py-4 font-semibold">User</th>
+                                 <th class="px-6 py-4 font-semibold">Submitted</th>
+                                 <th class="px-6 py-4 font-semibold">Priority</th>
+                                 <th class="px-6 py-4 font-semibold">Status</th>
+                                 <th class="px-6 py-4 font-semibold">Assigned To</th>
+                                 <th class="px-6 py-4 font-semibold text-right">Actions</th>
+                              </tr>
+                           </thead>
+                           <tbody class="divide-y divide-gray-100 dark:divide-gray-800 text-sm">
+                              <tr class="group hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                 <td class="px-6 py-4">
+                                    <div class="flex flex-col">
+                                       <span class="font-semibold text-text-main dark:text-white">Payment failed but amount deducted</span>
+                                       <span class="text-xs text-text-secondary dark:text-gray-400 mt-1 font-mono bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded w-fit">#TKT-8992</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                       <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold">R</div>
+                                       <div class="flex flex-col">
+                                          <span class="font-medium text-text-main dark:text-white">Rahul Sharma</span>
+                                          <span class="text-xs text-text-secondary dark:text-gray-400">User</span>
+                                       </div>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">
+                                    <div>Oct 24, 2023</div>
+                                    <div class="text-xs">10:30 AM</div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-red-50 text-red-600 dark:bg-red-900/20 dark:text-red-400 border border-red-100 dark:border-red-800/30">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> High
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-orange-50 text-orange-700 dark:bg-orange-900/20 dark:text-orange-400 border border-orange-100 dark:border-orange-800/30">
+                                    New
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="text-text-secondary dark:text-gray-500 italic text-xs">Unassigned</span>
+                                 </td>
+                                 <td class="px-6 py-4 text-right">
+                                    <div class="flex items-center justify-end gap-1">
+                                       <button class="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="Assign">
+                                       <span class="material-symbols-outlined text-[20px]">person_add</span>
+                                       </button>
+                                       <button class="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="View Details">
+                                       <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                       </button>
+                                       <button class="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="More">
+                                       <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                                       </button>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr class="group hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                 <td class="px-6 py-4">
+                                    <div class="flex flex-col">
+                                       <span class="font-semibold text-text-main dark:text-white">Challan status not updating</span>
+                                       <span class="text-xs text-text-secondary dark:text-gray-400 mt-1 font-mono bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded w-fit">#TKT-8991</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                       <div class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xs font-bold">P</div>
+                                       <div class="flex flex-col">
+                                          <span class="font-medium text-text-main dark:text-white">Priya Mehta</span>
+                                          <span class="text-xs text-text-secondary dark:text-gray-400">User</span>
+                                       </div>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">
+                                    <div>Oct 24, 2023</div>
+                                    <div class="text-xs">09:15 AM</div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-50 text-yellow-600 dark:bg-yellow-900/20 dark:text-yellow-400 border border-yellow-100 dark:border-yellow-800/30">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span> Medium
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-400 border border-blue-100 dark:border-blue-800/30">
+                                    In Progress
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                       <div class="w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-[10px] font-bold">AD</div>
+                                       <span class="text-sm text-text-main dark:text-gray-300">Admin User</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4 text-right">
+                                    <div class="flex items-center justify-end gap-1">
+                                       <button class="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="Assign">
+                                       <span class="material-symbols-outlined text-[20px]">person_add</span>
+                                       </button>
+                                       <button class="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="View Details">
+                                       <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                       </button>
+                                       <button class="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="More">
+                                       <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                                       </button>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr class="group hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                 <td class="px-6 py-4">
+                                    <div class="flex flex-col">
+                                       <span class="font-semibold text-text-main dark:text-white">Question about settlement process</span>
+                                       <span class="text-xs text-text-secondary dark:text-gray-400 mt-1 font-mono bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded w-fit">#TKT-8988</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                       <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs font-bold">S</div>
+                                       <div class="flex flex-col">
+                                          <span class="font-medium text-text-main dark:text-white">Sanjay Gupta</span>
+                                          <span class="text-xs text-text-secondary dark:text-gray-400">Advocate</span>
+                                       </div>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">
+                                    <div>Oct 23, 2023</div>
+                                    <div class="text-xs">04:45 PM</div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400 border border-gray-200 dark:border-gray-700">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span> Low
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400 border border-green-100 dark:border-green-800/30">
+                                    Resolved
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                       <div class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-[10px] font-bold">MK</div>
+                                       <span class="text-sm text-text-main dark:text-gray-300">Mohan K.</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4 text-right">
+                                    <div class="flex items-center justify-end gap-1">
+                                       <button class="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="Reopen">
+                                       <span class="material-symbols-outlined text-[20px]">replay</span>
+                                       </button>
+                                       <button class="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="View Details">
+                                       <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                       </button>
+                                       <button class="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="More">
+                                       <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                                       </button>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr class="group hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                 <td class="px-6 py-4">
+                                    <div class="flex flex-col">
+                                       <span class="font-semibold text-text-main dark:text-white">Login issues on mobile app</span>
+                                       <span class="text-xs text-text-secondary dark:text-gray-400 mt-1 font-mono bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded w-fit">#TKT-8980</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                       <div class="w-8 h-8 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center text-xs font-bold">A</div>
+                                       <div class="flex flex-col">
+                                          <span class="font-medium text-text-main dark:text-white">Anita Roy</span>
+                                          <span class="text-xs text-text-secondary dark:text-gray-400">User</span>
+                                       </div>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">
+                                    <div>Oct 22, 2023</div>
+                                    <div class="text-xs">02:20 PM</div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-red-50 text-red-600 dark:bg-red-900/20 dark:text-red-400 border border-red-100 dark:border-red-800/30">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> High
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-orange-50 text-orange-700 dark:bg-orange-900/20 dark:text-orange-400 border border-orange-100 dark:border-orange-800/30">
+                                    New
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="text-text-secondary dark:text-gray-500 italic text-xs">Unassigned</span>
+                                 </td>
+                                 <td class="px-6 py-4 text-right">
+                                    <div class="flex items-center justify-end gap-1">
+                                       <button class="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="Assign">
+                                       <span class="material-symbols-outlined text-[20px]">person_add</span>
+                                       </button>
+                                       <button class="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="View Details">
+                                       <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                       </button>
+                                       <button class="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="More">
+                                       <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                                       </button>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr class="group hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                 <td class="px-6 py-4">
+                                    <div class="flex flex-col">
+                                       <span class="font-semibold text-text-main dark:text-white">Incorrect vehicle details</span>
+                                       <span class="text-xs text-text-secondary dark:text-gray-400 mt-1 font-mono bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded w-fit">#TKT-8975</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                       <div class="w-8 h-8 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center text-xs font-bold">V</div>
+                                       <div class="flex flex-col">
+                                          <span class="font-medium text-text-main dark:text-white">Vikram Singh</span>
+                                          <span class="text-xs text-text-secondary dark:text-gray-400">User</span>
+                                       </div>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">
+                                    <div>Oct 21, 2023</div>
+                                    <div class="text-xs">11:10 AM</div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-50 text-yellow-600 dark:bg-yellow-900/20 dark:text-yellow-400 border border-yellow-100 dark:border-yellow-800/30">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span> Medium
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400 border border-green-100 dark:border-green-800/30">
+                                    Resolved
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                       <div class="w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-[10px] font-bold">AD</div>
+                                       <span class="text-sm text-text-main dark:text-gray-300">Admin User</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4 text-right">
+                                    <div class="flex items-center justify-end gap-1">
+                                       <button class="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="Reopen">
+                                       <span class="material-symbols-outlined text-[20px]">replay</span>
+                                       </button>
+                                       <button class="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="View Details">
+                                       <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                       </button>
+                                       <button class="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="More">
+                                       <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                                       </button>
+                                    </div>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <div class="px-6 py-4 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between">
+                        <span class="text-sm text-text-secondary dark:text-gray-400">Showing 1-10 of 24 tickets</span>
+                        <div class="flex gap-2">
+                           <button class="px-3 py-1.5 text-sm font-medium border border-gray-200 dark:border-gray-700 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors" disabled="">Previous</button>
+                           <button class="px-3 py-1.5 text-sm font-medium border border-gray-200 dark:border-gray-700 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">Next</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </main>
+         </div>
+      </div>
+   </body>
+</html>

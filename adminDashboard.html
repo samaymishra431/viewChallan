@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+   <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      <title>Admin Dashboard - Challan System</title>
+      <link href="https://fonts.googleapis.com" rel="preconnect"/>
+      <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+      <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+      <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+      <script id="tailwind-config">
+         tailwind.config = {
+             darkMode: "class",
+             theme: {
+                 extend: {
+                     colors: {
+                         "primary": "#135bec",
+                         "primary-hover": "#0e4bca",
+                         "background-light": "#f6f6f8",
+                         "background-dark": "#101622",
+                         "card-light": "#ffffff",
+                         "card-dark": "#1a2230",
+                         "text-main": "#111318",
+                         "text-secondary": "#616f89",
+                     },
+                     fontFamily: {
+                         "display": ["Public Sans", "sans-serif"]
+                     },
+                     borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                 },
+             },
+         }
+      </script>
+      <style>::-webkit-scrollbar {
+         width: 6px;
+         height: 6px;
+         }
+         ::-webkit-scrollbar-track {
+         background: transparent;
+         }
+         ::-webkit-scrollbar-thumb {
+         background: #cbd5e1;
+         border-radius: 3px;
+         }
+         .dark ::-webkit-scrollbar-thumb {
+         background: #334155;
+         }
+      </style>
+   </head>
+   <body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-gray-100 transition-colors duration-200">
+      <div class="flex h-screen overflow-hidden">
+         <aside class="w-64 flex-shrink-0 bg-card-light dark:bg-card-dark border-r border-gray-200 dark:border-gray-800 flex flex-col transition-colors duration-200 z-20 hidden lg:flex">
+            <div class="h-16 flex items-center px-6 border-b border-gray-100 dark:border-gray-800">
+               <div class="flex flex-col">
+                  <h1 class="text-primary text-lg font-bold leading-none">Challan Admin</h1>
+                  <span class="text-text-secondary dark:text-gray-400 text-xs mt-1">Management System</span>
+               </div>
+            </div>
+            <nav class="flex-1 overflow-y-auto py-4 px-3 space-y-1">
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary group transition-all" href="#">
+               <span class="material-symbols-outlined text-[20px] font-medium">dashboard</span>
+               <span class="text-sm font-semibold">Dashboard</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="users.html">
+               <span class="material-symbols-outlined text-[20px]">group</span>
+               <span class="text-sm font-medium">Users</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminVehicles.html">
+               <span class="material-symbols-outlined text-[20px]">directions_car</span>
+               <span class="text-sm font-medium">Vehicles</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminChallans.html">
+               <span class="material-symbols-outlined text-[20px]">receipt_long</span>
+               <span class="text-sm font-medium">Challans</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="advocates.html">
+               <span class="material-symbols-outlined text-[20px]">gavel</span>
+               <span class="text-sm font-medium">Advocates</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="settlements.html">
+               <span class="material-symbols-outlined text-[20px]">payments</span>
+               <span class="text-sm font-medium">Settlements</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminPayments.html">
+               <span class="material-symbols-outlined text-[20px]">history</span>
+               <span class="text-sm font-medium">Payment History</span>
+               </a>
+               <div class="pt-4 mt-4 border-t border-gray-100 dark:border-gray-800">
+                  <p class="px-3 text-xs font-semibold text-text-secondary dark:text-gray-500 uppercase tracking-wider mb-2">System</p>
+                  <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="auditLog.html">
+                  <span class="material-symbols-outlined text-[20px]">history_edu</span>
+                  <span class="text-sm font-medium">Admin Audit Log</span>
+                  </a>
+                  <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminProfile.html">
+                  <span class="material-symbols-outlined text-[20px]">person</span>
+                  <span class="text-sm font-medium">Profile</span>
+                  </a>
+                  <!-- <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="setting.html">
+                     <span class="material-symbols-outlined text-[20px]">settings</span>
+                     <span class="text-sm font-medium">Settings</span>
+                     </a> -->
+                  <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminSupport.html">
+                  <span class="material-symbols-outlined text-[20px]">help</span>
+                  <span class="text-sm font-medium">Help &amp; Support</span>
+                  </a>
+               </div>
+            </nav>
+            <div class="p-4 border-t border-gray-100 dark:border-gray-800">
+               <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">A</div>
+                  <div class="flex flex-col">
+                     <span class="text-sm font-medium text-text-main dark:text-gray-200">Admin User</span>
+                     <span class="text-xs text-text-secondary dark:text-gray-400">admin@system.com</span>
+                  </div>
+               </div>
+            </div>
+         </aside>
+         <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+            <header class="h-16 flex items-center justify-between bg-card-light dark:bg-card-dark border-b border-gray-200 dark:border-gray-800 px-6 lg:px-8 z-10">
+               <div class="flex items-center gap-4 lg:hidden">
+                  <button class="text-text-secondary dark:text-gray-400 hover:text-primary">
+                  <span class="material-symbols-outlined">menu</span>
+                  </button>
+                  <span class="font-bold text-lg text-text-main dark:text-white">Admin</span>
+               </div>
+               <div class="hidden lg:flex flex-1 max-w-lg">
+                  <div class="relative w-full">
+                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <span class="material-symbols-outlined text-text-secondary dark:text-gray-500 text-[20px]">search</span>
+                     </div>
+                     <input class="block w-full pl-10 pr-3 py-2 border-none rounded-lg bg-background-light dark:bg-gray-800 text-sm placeholder-text-secondary dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 text-text-main dark:text-white" placeholder="Search Challan ID, Vehicle No..." type="text"/>
+                  </div>
+               </div>
+               <div class="flex items-center gap-4 ml-4">
+                  <button class="relative p-2 rounded-full text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                  <span class="material-symbols-outlined text-[22px]">notifications</span>
+                  <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-card-dark"></span>
+                  </button>
+                  <div class="w-9 h-9 rounded-full bg-cover bg-center border border-gray-200 dark:border-gray-700 cursor-pointer" data-alt="User profile picture showing a smiling person" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBUc2B9WegD0MYu041RJdchtI7XLk-6zCH4zGvJdQg-oroY7cipYX62vu_2Xh-D737vW7C5vbwuKFkN511WEKiYc36GiESqQuGDA3vbuKqIeehfiGwjLegRBxR6bRDxBU5jPcQAWpmsFwXY-N6tMl7mc-Hpccjblc15geDK6Y-SLBxkCbgf_EvU8-kgTG1EzBp17Qq21YmUXc8NZ_K9WvqljGTYybgH0BzjNfk0-oN3ze8BpCL6NA6TU4nqfFPhkBe7SnbZmGi2zWM');"></div>
+               </div>
+            </header>
+            <main class="flex-1 overflow-y-auto p-4 lg:p-8 scroll-smooth">
+               <div class="max-w-7xl mx-auto flex flex-col gap-6">
+                  <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                     <div>
+                        <h2 class="text-2xl font-bold text-text-main dark:text-white tracking-tight">System Overview</h2>
+                        <p class="text-text-secondary dark:text-gray-400 mt-1">Real-time metrics and performance indicators.</p>
+                     </div>
+                     <div class="flex items-center gap-3">
+                        <a class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-gray-200 dark:border-gray-700 flex items-center gap-2" href="#">
+                        <span class="material-symbols-outlined text-[18px]">history_edu</span>
+                        Audit Log
+                        </a>
+                        <button class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm shadow-primary/30 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">refresh</span>
+                        Refresh Data
+                        </button>
+                     </div>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+                     <div class="bg-card-light dark:bg-card-dark p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col justify-between h-32">
+                        <div class="flex justify-between items-start">
+                           <div>
+                              <p class="text-text-secondary dark:text-gray-400 text-sm font-medium">Total API Hits</p>
+                              <h3 class="text-2xl font-bold text-text-main dark:text-white mt-1">14,203</h3>
+                           </div>
+                           <div class="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-primary">
+                              <span class="material-symbols-outlined text-[20px]">api</span>
+                           </div>
+                        </div>
+                        <div class="flex items-center gap-1 text-green-600 text-xs font-medium">
+                           <span class="material-symbols-outlined text-[14px]">trending_up</span>
+                           <span>+5% this week</span>
+                        </div>
+                     </div>
+                     <div class="bg-card-light dark:bg-card-dark p-5 rounded-xl border border-primary/20 dark:border-primary/40 shadow-sm shadow-primary/5 flex flex-col justify-between h-32 relative overflow-hidden group">
+                        <div class="absolute right-0 top-0 w-16 h-16 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                        <div class="flex justify-between items-start relative z-10">
+                           <div>
+                              <p class="text-text-secondary dark:text-gray-400 text-sm font-medium">API Cost Saved</p>
+                              <h3 class="text-2xl font-bold text-primary mt-1">₹ 45,000</h3>
+                           </div>
+                           <div class="p-2 bg-primary/10 rounded-lg text-primary">
+                              <span class="material-symbols-outlined text-[20px]">savings</span>
+                           </div>
+                        </div>
+                        <div class="flex items-center gap-1 text-text-secondary dark:text-gray-500 text-xs font-medium relative z-10">
+                           <span class="material-symbols-outlined text-[14px]">check_circle</span>
+                           <span>Optimized Fetching</span>
+                        </div>
+                     </div>
+                     <div class="bg-card-light dark:bg-card-dark p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col justify-between h-32">
+                        <div class="flex justify-between items-start">
+                           <div>
+                              <p class="text-text-secondary dark:text-gray-400 text-sm font-medium">Total Challans</p>
+                              <h3 class="text-2xl font-bold text-text-main dark:text-white mt-1">8,500</h3>
+                           </div>
+                           <div class="p-2 bg-purple-50 dark:bg-purple-900/20 rounded-lg text-purple-600 dark:text-purple-400">
+                              <span class="material-symbols-outlined text-[20px]">receipt</span>
+                           </div>
+                        </div>
+                        <div class="flex items-center gap-1 text-text-secondary dark:text-gray-500 text-xs font-medium">
+                           <span>Total Volume</span>
+                        </div>
+                     </div>
+                     <div class="bg-card-light dark:bg-card-dark p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col justify-between h-32">
+                        <div class="flex justify-between items-start mb-2">
+                           <div>
+                              <p class="text-text-secondary dark:text-gray-400 text-sm font-medium">Paid / Unpaid</p>
+                              <h3 class="text-xl font-bold text-text-main dark:text-white mt-1">3.2k <span class="text-gray-400 text-base font-normal">/ 5.3k</span></h3>
+                           </div>
+                           <div class="p-2 bg-orange-50 dark:bg-orange-900/20 rounded-lg text-orange-600 dark:text-orange-400">
+                              <span class="material-symbols-outlined text-[20px]">pie_chart</span>
+                           </div>
+                        </div>
+                        <div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-1.5 mt-auto">
+                           <div class="bg-green-500 h-1.5 rounded-full" style="width: 37%"></div>
+                        </div>
+                        <div class="flex justify-between mt-1 text-[10px] text-text-secondary dark:text-gray-500">
+                           <span>37% Paid</span>
+                           <span>63% Pending</span>
+                        </div>
+                     </div>
+                     <div class="bg-card-light dark:bg-card-dark p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col justify-between h-32">
+                        <div class="flex justify-between items-start">
+                           <div>
+                              <p class="text-text-secondary dark:text-gray-400 text-sm font-medium">Active Advocates</p>
+                              <h3 class="text-2xl font-bold text-text-main dark:text-white mt-1">12</h3>
+                           </div>
+                           <div class="p-2 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg text-indigo-600 dark:text-indigo-400">
+                              <span class="material-symbols-outlined text-[20px]">gavel</span>
+                           </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                           <span class="relative flex h-2 w-2">
+                           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                           <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                           </span>
+                           <span class="text-text-secondary dark:text-gray-500 text-xs font-medium">Online Now</span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                     <div class="lg:col-span-1 bg-card-light dark:bg-card-dark rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm p-6 flex flex-col">
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-4">Challan Status</h3>
+                        <div class="relative w-full aspect-square max-h-48 flex items-center justify-center">
+                           <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                              <path class="text-orange-100 dark:text-orange-900/20" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.8"></path>
+                              <path class="text-green-500" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="40, 100" stroke-width="3.8"></path>
+                              <path class="text-blue-500" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="20, 100" stroke-dashoffset="-40" stroke-width="3.8"></path>
+                              <path class="text-orange-500" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="40, 100" stroke-dashoffset="-60" stroke-width="3.8"></path>
+                           </svg>
+                           <div class="absolute inset-0 flex items-center justify-center flex-col">
+                              <span class="text-2xl font-bold text-text-main dark:text-white">8.5k</span>
+                              <span class="text-xs text-text-secondary dark:text-gray-400">Total</span>
+                           </div>
+                        </div>
+                        <div class="flex flex-col gap-2 mt-6">
+                           <div class="flex justify-between items-center text-sm">
+                              <div class="flex items-center gap-2">
+                                 <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                 <span class="text-text-secondary dark:text-gray-400">Paid</span>
+                              </div>
+                              <span class="font-semibold text-text-main dark:text-white">40%</span>
+                           </div>
+                           <div class="flex justify-between items-center text-sm">
+                              <div class="flex items-center gap-2">
+                                 <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+                                 <span class="text-text-secondary dark:text-gray-400">In Settlement</span>
+                              </div>
+                              <span class="font-semibold text-text-main dark:text-white">20%</span>
+                           </div>
+                           <div class="flex justify-between items-center text-sm">
+                              <div class="flex items-center gap-2">
+                                 <span class="w-3 h-3 rounded-full bg-orange-500"></span>
+                                 <span class="text-text-secondary dark:text-gray-400">Unpaid</span>
+                              </div>
+                              <span class="font-semibold text-text-main dark:text-white">40%</span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="lg:col-span-2 flex flex-col gap-6">
+                        <div class="bg-card-light dark:bg-card-dark rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm p-6 flex-1">
+                           <div class="flex items-center justify-between mb-4">
+                              <h3 class="text-lg font-bold text-text-main dark:text-white">Monthly Challan Volume</h3>
+                              <span class="text-xs font-medium text-green-600 bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded">+12% vs last month</span>
+                           </div>
+                           <div class="h-48 w-full flex items-end gap-2">
+                              <div class="w-full bg-primary/10 rounded-t hover:bg-primary/20 transition-all relative group" style="height: 40%">
+                                 <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">Jan: 3.2k</div>
+                              </div>
+                              <div class="w-full bg-primary/20 rounded-t hover:bg-primary/30 transition-all relative group" style="height: 55%">
+                                 <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">Feb: 4.5k</div>
+                              </div>
+                              <div class="w-full bg-primary/30 rounded-t hover:bg-primary/40 transition-all relative group" style="height: 45%">
+                                 <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">Mar: 3.8k</div>
+                              </div>
+                              <div class="w-full bg-primary/40 rounded-t hover:bg-primary/50 transition-all relative group" style="height: 70%">
+                                 <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">Apr: 6.2k</div>
+                              </div>
+                              <div class="w-full bg-primary/60 rounded-t hover:bg-primary/70 transition-all relative group" style="height: 60%">
+                                 <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">May: 5.1k</div>
+                              </div>
+                              <div class="w-full bg-primary rounded-t hover:bg-primary-hover transition-all relative group" style="height: 85%">
+                                 <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">Jun: 7.8k</div>
+                              </div>
+                           </div>
+                           <div class="flex justify-between mt-2 text-xs text-text-secondary dark:text-gray-500">
+                              <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+                           </div>
+                        </div>
+                        <div class="bg-card-light dark:bg-card-dark rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm p-6 flex-1">
+                           <div class="flex items-center justify-between mb-4">
+                              <h3 class="text-lg font-bold text-text-main dark:text-white">API Usage Costs</h3>
+                              <span class="text-sm font-semibold text-text-main dark:text-white">Total: ₹ 12,500</span>
+                           </div>
+                           <div class="space-y-4">
+                              <div class="flex items-center justify-between text-sm">
+                                 <span class="text-text-secondary dark:text-gray-400 w-20">Oct 2023</span>
+                                 <div class="flex-1 mx-4 h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-blue-500 w-3/4 rounded-full"></div>
+                                 </div>
+                                 <span class="font-medium text-text-main dark:text-white">₹ 4,200</span>
+                              </div>
+                              <div class="flex items-center justify-between text-sm">
+                                 <span class="text-text-secondary dark:text-gray-400 w-20">Sep 2023</span>
+                                 <div class="flex-1 mx-4 h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-blue-400 w-2/3 rounded-full"></div>
+                                 </div>
+                                 <span class="font-medium text-text-main dark:text-white">₹ 3,800</span>
+                              </div>
+                              <div class="flex items-center justify-between text-sm">
+                                 <span class="text-text-secondary dark:text-gray-400 w-20">Aug 2023</span>
+                                 <div class="flex-1 mx-4 h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-blue-300 w-1/2 rounded-full"></div>
+                                 </div>
+                                 <span class="font-medium text-text-main dark:text-white">₹ 2,900</span>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="lg:col-span-1 flex flex-col gap-6">
+                        <div class="bg-card-light dark:bg-card-dark rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm p-6">
+                           <h3 class="text-lg font-bold text-text-main dark:text-white mb-4">Top Advocates</h3>
+                           <div class="space-y-4">
+                              <div class="flex items-center justify-between">
+                                 <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-yellow-100 text-yellow-700 flex items-center justify-center font-bold text-xs">1</div>
+                                    <div>
+                                       <p class="text-sm font-semibold text-text-main dark:text-white">Rajesh K.</p>
+                                       <p class="text-xs text-text-secondary dark:text-gray-400">98% Settlement</p>
+                                    </div>
+                                 </div>
+                                 <span class="text-sm font-bold text-green-600">₹ 45k</span>
+                              </div>
+                              <div class="flex items-center justify-between">
+                                 <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 flex items-center justify-center font-bold text-xs">2</div>
+                                    <div>
+                                       <p class="text-sm font-semibold text-text-main dark:text-white">Sneha G.</p>
+                                       <p class="text-xs text-text-secondary dark:text-gray-400">92% Settlement</p>
+                                    </div>
+                                 </div>
+                                 <span class="text-sm font-bold text-green-600">₹ 38k</span>
+                              </div>
+                              <div class="flex items-center justify-between">
+                                 <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center font-bold text-xs">3</div>
+                                    <div>
+                                       <p class="text-sm font-semibold text-text-main dark:text-white">Amit V.</p>
+                                       <p class="text-xs text-text-secondary dark:text-gray-400">88% Settlement</p>
+                                    </div>
+                                 </div>
+                                 <span class="text-sm font-bold text-green-600">₹ 31k</span>
+                              </div>
+                           </div>
+                           <button class="w-full mt-4 text-xs font-medium text-primary hover:text-primary-hover text-center">View Full Leaderboard</button>
+                        </div>
+                        <div class="bg-card-light dark:bg-card-dark rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm p-6 flex-1 flex flex-col">
+                           <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">User Growth</h3>
+                           <div class="flex items-end gap-1 flex-1 h-32 pt-4 border-b border-gray-100 dark:border-gray-800">
+                              <div class="w-1/6 bg-indigo-200 dark:bg-indigo-900/40 rounded-t h-[30%]"></div>
+                              <div class="w-1/6 bg-indigo-300 dark:bg-indigo-800/40 rounded-t h-[45%]"></div>
+                              <div class="w-1/6 bg-indigo-400 dark:bg-indigo-700/40 rounded-t h-[40%]"></div>
+                              <div class="w-1/6 bg-indigo-500 dark:bg-indigo-600/40 rounded-t h-[60%]"></div>
+                              <div class="w-1/6 bg-indigo-600 dark:bg-indigo-500/40 rounded-t h-[75%]"></div>
+                              <div class="w-1/6 bg-indigo-700 dark:bg-indigo-400/40 rounded-t h-[90%]"></div>
+                           </div>
+                           <div class="flex justify-between mt-2 text-[10px] text-text-secondary dark:text-gray-500">
+                              <span>6mo ago</span>
+                              <span>Now</span>
+                           </div>
+                           <div class="mt-2 text-sm">
+                              <span class="font-bold text-text-main dark:text-white">2,450</span> <span class="text-text-secondary dark:text-gray-400">New Users</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                     <div class="lg:col-span-2 bg-card-light dark:bg-card-dark rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm p-6">
+                        <div class="flex items-center justify-between mb-6">
+                           <h3 class="text-lg font-bold text-text-main dark:text-white">Daily Challan Volume</h3>
+                           <select class="bg-gray-50 dark:bg-gray-800 border-none text-sm rounded-lg px-3 py-1.5 text-text-secondary dark:text-gray-300 focus:ring-0 cursor-pointer">
+                              <option>Last 30 Days</option>
+                              <option>Last 7 Days</option>
+                              <option>This Year</option>
+                           </select>
+                        </div>
+                        <div class="relative h-64 w-full">
+                           <svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 800 200">
+                              <line class="dark:stroke-gray-800" stroke="#e2e8f0" stroke-width="1" x1="0" x2="800" y1="200" y2="200"></line>
+                              <line class="dark:stroke-gray-800" stroke="#e2e8f0" stroke-dasharray="4" stroke-width="1" x1="0" x2="800" y1="150" y2="150"></line>
+                              <line class="dark:stroke-gray-800" stroke="#e2e8f0" stroke-dasharray="4" stroke-width="1" x1="0" x2="800" y1="100" y2="100"></line>
+                              <line class="dark:stroke-gray-800" stroke="#e2e8f0" stroke-dasharray="4" stroke-width="1" x1="0" x2="800" y1="50" y2="50"></line>
+                              <defs>
+                                 <linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+                                    <stop offset="0%" stop-color="#135bec" stop-opacity="0.2"></stop>
+                                    <stop offset="100%" stop-color="#135bec" stop-opacity="0"></stop>
+                                 </linearGradient>
+                              </defs>
+                              <path d="M0,180 C50,180 50,120 100,130 C150,140 150,80 200,90 C250,100 250,60 300,70 C350,80 350,150 400,140 C450,130 450,40 500,60 C550,80 550,110 600,100 C650,90 650,30 700,40 C750,50 750,160 800,150 L800,200 L0,200 Z" fill="url(#chartGradient)"></path>
+                              <path d="M0,180 C50,180 50,120 100,130 C150,140 150,80 200,90 C250,100 250,60 300,70 C350,80 350,150 400,140 C450,130 450,40 500,60 C550,80 550,110 600,100 C650,90 650,30 700,40 C750,50 750,160 800,150" fill="none" stroke="#135bec" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+                              <circle cx="200" cy="90" fill="#ffffff" r="4" stroke="#135bec" stroke-width="2"></circle>
+                              <circle cx="500" cy="60" fill="#ffffff" r="4" stroke="#135bec" stroke-width="2"></circle>
+                              <circle cx="700" cy="40" fill="#ffffff" r="4" stroke="#135bec" stroke-width="2"></circle>
+                           </svg>
+                        </div>
+                        <div class="flex justify-between mt-4 text-xs text-text-secondary dark:text-gray-500 font-medium">
+                           <span>1 Nov</span>
+                           <span>5 Nov</span>
+                           <span>10 Nov</span>
+                           <span>15 Nov</span>
+                           <span>20 Nov</span>
+                           <span>25 Nov</span>
+                           <span>30 Nov</span>
+                        </div>
+                     </div>
+                     <div class="bg-card-light dark:bg-card-dark rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm p-6 flex flex-col">
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-6">Collection Status</h3>
+                        <div class="flex-1 flex items-end justify-around gap-4 pb-2">
+                           <div class="flex flex-col items-center gap-2 w-1/4 group cursor-pointer">
+                              <div class="relative w-full rounded-t-lg bg-primary/20 h-40 overflow-hidden flex items-end">
+                                 <div class="w-full bg-primary group-hover:bg-primary-hover transition-all" style="height: 65%;"></div>
+                                 <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">₹65k</div>
+                              </div>
+                              <span class="text-xs font-medium text-text-secondary dark:text-gray-400">Collected</span>
+                           </div>
+                           <div class="flex flex-col items-center gap-2 w-1/4 group cursor-pointer">
+                              <div class="relative w-full rounded-t-lg bg-orange-100 dark:bg-orange-900/20 h-40 overflow-hidden flex items-end">
+                                 <div class="w-full bg-orange-500 group-hover:bg-orange-600 transition-all" style="height: 35%;"></div>
+                                 <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">₹35k</div>
+                              </div>
+                              <span class="text-xs font-medium text-text-secondary dark:text-gray-400">Pending</span>
+                           </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800 flex flex-col gap-3">
+                           <div class="flex justify-between items-center text-sm">
+                              <span class="text-text-secondary dark:text-gray-400">Total Revenue</span>
+                              <span class="font-bold text-text-main dark:text-white">₹ 1,20,500</span>
+                           </div>
+                           <div class="flex justify-between items-center text-sm">
+                              <span class="text-text-secondary dark:text-gray-400">Outstanding</span>
+                              <span class="font-bold text-orange-600">₹ 45,200</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="bg-card-light dark:bg-card-dark rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
+                     <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-800 flex justify-between items-center bg-gray-50/50 dark:bg-gray-800/30">
+                        <h3 class="text-lg font-bold text-text-main dark:text-white">Recent Challan Updates</h3>
+                        <a class="text-sm font-medium text-primary hover:text-primary-hover flex items-center gap-1" href="#">
+                        View All <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                        </a>
+                     </div>
+                     <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                           <thead>
+                              <tr class="text-xs text-text-secondary dark:text-gray-400 border-b border-gray-100 dark:border-gray-800">
+                                 <th class="px-6 py-3 font-semibold uppercase tracking-wider">Challan ID</th>
+                                 <th class="px-6 py-3 font-semibold uppercase tracking-wider">Vehicle No</th>
+                                 <th class="px-6 py-3 font-semibold uppercase tracking-wider">Amount</th>
+                                 <th class="px-6 py-3 font-semibold uppercase tracking-wider">Advocate</th>
+                                 <th class="px-6 py-3 font-semibold uppercase tracking-wider">Status</th>
+                                 <th class="px-6 py-3 font-semibold uppercase tracking-wider">Date</th>
+                                 <th class="px-6 py-3 font-semibold uppercase tracking-wider text-right">Action</th>
+                              </tr>
+                           </thead>
+                           <tbody class="text-sm text-text-main dark:text-gray-300 divide-y divide-gray-100 dark:divide-gray-800">
+                              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                 <td class="px-6 py-4 font-medium">CH-2023-8892</td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">MH 12 AB 1234</td>
+                                 <td class="px-6 py-4 font-semibold">₹ 2,000</td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                       <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold">R</div>
+                                       <span>Rajesh Kumar</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                    Paid
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">Oct 24, 2023</td>
+                                 <td class="px-6 py-4 text-right">
+                                    <button class="text-text-secondary dark:text-gray-400 hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                                    </button>
+                                 </td>
+                              </tr>
+                              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                 <td class="px-6 py-4 font-medium">CH-2023-8893</td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">KA 05 CD 5678</td>
+                                 <td class="px-6 py-4 font-semibold">₹ 500</td>
+                                 <td class="px-6 py-4">
+                                    <span class="text-text-secondary dark:text-gray-500 italic">Unassigned</span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400">
+                                    Pending
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">Oct 24, 2023</td>
+                                 <td class="px-6 py-4 text-right">
+                                    <button class="text-text-secondary dark:text-gray-400 hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                                    </button>
+                                 </td>
+                              </tr>
+                              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                 <td class="px-6 py-4 font-medium">CH-2023-8894</td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">DL 3C XY 9090</td>
+                                 <td class="px-6 py-4 font-semibold">₹ 1,500</td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                       <div class="w-6 h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xs font-bold">S</div>
+                                       <span>Sneha Gupta</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
+                                    Processing
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">Oct 23, 2023</td>
+                                 <td class="px-6 py-4 text-right">
+                                    <button class="text-text-secondary dark:text-gray-400 hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                                    </button>
+                                 </td>
+                              </tr>
+                              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                 <td class="px-6 py-4 font-medium">CH-2023-8895</td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">UP 16 Z 1122</td>
+                                 <td class="px-6 py-4 font-semibold">₹ 1,000</td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                       <div class="w-6 h-6 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center text-xs font-bold">A</div>
+                                       <span>Amit Verma</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                    Paid
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">Oct 23, 2023</td>
+                                 <td class="px-6 py-4 text-right">
+                                    <button class="text-text-secondary dark:text-gray-400 hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                                    </button>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <div class="px-6 py-4 border-t border-gray-200 dark:border-gray-800 flex justify-center">
+                        <button class="text-sm font-medium text-text-secondary hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors">
+                        Show More Records
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </main>
+         </div>
+      </div>
+   </body>
+</html>

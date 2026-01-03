@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+   <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      <title>Challan Management System - Help &amp; Support</title>
+      <link href="https://fonts.googleapis.com" rel="preconnect"/>
+      <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+      <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+      <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+      <script id="tailwind-config">
+         tailwind.config = {
+             darkMode: "class",
+             theme: {
+                 extend: {
+                     colors: {
+                         "primary": "#135bec",
+                         "background-light": "#f6f6f8",
+                         "background-dark": "#101622",
+                         "surface-light": "#ffffff",
+                         "surface-dark": "#18212f",
+                         "border-light": "#dbdfe6",
+                         "border-dark": "#2d3748",
+                     },
+                     fontFamily: {
+                         "display": ["Public Sans", "sans-serif"]
+                     },
+                     borderRadius: {
+                         "DEFAULT": "0.25rem", 
+                         "lg": "0.5rem", 
+                         "xl": "0.75rem", 
+                         "full": "9999px"
+                     },
+                 },
+             },
+         }
+      </script>
+      <style>
+         .no-scrollbar::-webkit-scrollbar {
+         display: none;
+         }
+         .no-scrollbar {
+         -ms-overflow-style: none;
+         scrollbar-width: none;
+         }
+         details > summary {
+         list-style: none;
+         }
+         details > summary::-webkit-details-marker {
+         display: none;
+         }
+      </style>
+   </head>
+   <body class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white font-display transition-colors duration-200">
+      <div class="flex h-screen w-full overflow-hidden">
+         <aside class="flex w-64 flex-col border-r border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark transition-colors duration-200 z-20">
+            <div class="flex flex-col h-full p-4 justify-between">
+               <div class="flex flex-col gap-4">
+                  <nav class="flex flex-col gap-2 mt-2">
+                    <a class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#616f89] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all" href="userDashboard.html">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">dashboard</span>
+                        <p class="text-sm font-bold leading-normal">Dashboard</p>
+                     </a>
+                     <a class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#616f89] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all" href="userChallans.html">
+                        <span class="material-symbols-outlined">receipt_long</span>
+                        <p class="text-sm font-medium leading-normal">Challans</p>
+                     </a>
+                     <a class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#616f89] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all" href="userVehicles.html">
+                        <span class="material-symbols-outlined">directions_car</span>
+                        <p class="text-sm font-medium leading-normal">My Vehicles</p>
+                     </a>
+                     <a class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#616f89] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all" href="userPayments.html">
+                        <span class="material-symbols-outlined">history_edu</span>
+                        <p class="text-sm font-medium leading-normal">Payment History</p>
+                     </a>
+                     <a class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#616f89] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all" href="userProfile.html">
+                        <span class="material-symbols-outlined">person</span>
+                        <p class="text-sm font-medium leading-normal">Profile</p>
+                     </a>
+                     <!-- <a class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#616f89] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all" href="#">
+                        <span class="material-symbols-outlined">settings</span>
+                        <p class="text-sm font-medium leading-normal">Settings</p>
+                     </a> -->
+                     <a class="flex items-center gap-3 px-3 py-3 rounded-lg bg-primary/10 text-primary dark:text-blue-400 group transition-all" href="#">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">support_agent</span>
+                        <p class="text-sm font-bold leading-normal">Help and support</p>
+                     </a>
+                  </nav>
+               </div>
+               <div class="flex flex-col gap-4">
+                  <div class="flex gap-3 items-center px-3 pt-4 border-t border-border-light dark:border-border-dark">
+                     <div class="bg-center bg-no-repeat bg-cover rounded-full size-10 shadow-sm flex-shrink-0" data-alt="Profile picture of Rajesh" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDzI1Lgs_YAmCo_T6y1ZKQpvqfAfJrfenSM8t_FBshtHdJcgK6gkni2y-e14wAewS13cJ4dZDJbHirrJAD9aIaiDUosd1gffqST5BTAHgI7BXnG8Zuzg8QPBjAvq9sDrixUDAJ5E1vVvI7a4SM-IgwB8PumYUaN4Ghsv5jE425MhmXM-xHk8PS2u6J7ScmXJMTv-xUIXViUbt9SApv9vWcS5a45I5GpL9zA9wK7rtIaRw25AvnN67XpSueLjtaWkY_hgbquX8G04BA");'></div>
+                     <div class="flex flex-col overflow-hidden">
+                        <h1 class="text-sm font-bold leading-normal dark:text-white truncate">Challan System</h1>
+                        <p class="text-[#616f89] dark:text-gray-400 text-[10px] font-medium uppercase tracking-wide truncate">User Panel</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </aside>
+         <main class="flex-1 flex flex-col h-screen overflow-hidden bg-background-light dark:bg-background-dark">
+            <header class="flex-none h-16 w-full bg-surface-light dark:bg-surface-dark border-b border-border-light dark:border-border-dark px-6 flex items-center justify-between z-10 shadow-sm relative">
+               <div class="font-black text-xl tracking-tight text-[#111318] dark:text-white uppercase">
+                  vishal bike mart
+               </div>
+               <div class="flex items-center gap-4">
+                  <button class="flex items-center justify-center p-2 rounded-full text-[#616f89] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary transition-all">
+                  <span class="material-symbols-outlined">notifications</span>
+                  </button>
+                  <button class="flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark hover:border-primary/50 transition-all">
+                     <div class="size-7 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined text-sm">person</span>
+                     </div>
+                     <span class="text-sm font-semibold text-[#111318] dark:text-white hidden sm:block">My Account</span>
+                     <span class="material-symbols-outlined text-gray-400 text-lg">expand_more</span>
+                  </button>
+               </div>
+            </header>
+            <div class="flex-1 overflow-y-auto no-scrollbar">
+               <div class="container mx-auto max-w-7xl px-6 py-8 flex flex-col gap-8">
+                  <div class="flex flex-col items-center justify-center gap-6 py-12 rounded-2xl bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark shadow-sm bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+                     <div class="text-center space-y-2">
+                        <h1 class="text-3xl font-black text-[#111318] dark:text-white">How can we help you?</h1>
+                        <p class="text-[#616f89] dark:text-gray-400">Search our knowledge base or contact support for assistance.</p>
+                     </div>
+                     <div class="w-full max-w-2xl relative px-6">
+                        <span class="absolute left-10 top-1/2 -translate-y-1/2 text-gray-400 material-symbols-outlined">search</span>
+                        <input class="w-full pl-12 pr-4 py-3.5 rounded-xl border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-[#111318] dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all placeholder:text-gray-400 shadow-sm" placeholder="Search for answers, e.g. 'Payment failed'" type="text"/>
+                     </div>
+                  </div>
+                  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                     <div class="lg:col-span-2 flex flex-col gap-8">
+                        <div>
+                           <h2 class="text-xl font-bold text-[#111318] dark:text-white mb-4">Frequently Asked Questions</h2>
+                           <div class="flex flex-col gap-3">
+                              <details class="group bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark overflow-hidden">
+                                 <summary class="flex justify-between items-center p-5 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                    <span class="font-semibold text-[#111318] dark:text-white">How can I check my pending challans?</span>
+                                    <span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform">expand_more</span>
+                                 </summary>
+                                 <div class="px-5 pb-5 text-sm text-[#616f89] dark:text-gray-400 leading-relaxed border-t border-border-light dark:border-border-dark pt-4">
+                                    You can check your pending challans by navigating to the "Challans" tab in the sidebar. Alternatively, use the Quick Pay search on your dashboard by entering your vehicle number.
+                                 </div>
+                              </details>
+                              <details class="group bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark overflow-hidden">
+                                 <summary class="flex justify-between items-center p-5 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                    <span class="font-semibold text-[#111318] dark:text-white">What payment methods are accepted?</span>
+                                    <span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform">expand_more</span>
+                                 </summary>
+                                 <div class="px-5 pb-5 text-sm text-[#616f89] dark:text-gray-400 leading-relaxed border-t border-border-light dark:border-border-dark pt-4">
+                                    We accept all major credit/debit cards, net banking from major banks, and UPI payments (Google Pay, PhonePe, Paytm).
+                                 </div>
+                              </details>
+                              <details class="group bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark overflow-hidden">
+                                 <summary class="flex justify-between items-center p-5 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                    <span class="font-semibold text-[#111318] dark:text-white">I paid my challan but the status is still 'Pending'.</span>
+                                    <span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform">expand_more</span>
+                                 </summary>
+                                 <div class="px-5 pb-5 text-sm text-[#616f89] dark:text-gray-400 leading-relaxed border-t border-border-light dark:border-border-dark pt-4">
+                                    Usually, the status updates instantly. However, in some cases due to bank server delays, it may take up to 24 hours. If it persists, please use the contact form on this page with your transaction ID.
+                                 </div>
+                              </details>
+                              <details class="group bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark overflow-hidden">
+                                 <summary class="flex justify-between items-center p-5 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                    <span class="font-semibold text-[#111318] dark:text-white">How do I contest a challan in court?</span>
+                                    <span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform">expand_more</span>
+                                 </summary>
+                                 <div class="px-5 pb-5 text-sm text-[#616f89] dark:text-gray-400 leading-relaxed border-t border-border-light dark:border-border-dark pt-4">
+                                    If you believe a challan was issued in error, you can choose the 'Contest in Court' option on the challan detail page. This will forward your case to the Virtual Traffic Court. You may need to appear virtually or physically as per summons.
+                                 </div>
+                              </details>
+                              <details class="group bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark overflow-hidden">
+                                 <summary class="flex justify-between items-center p-5 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                    <span class="font-semibold text-[#111318] dark:text-white">Can I download a receipt for past payments?</span>
+                                    <span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform">expand_more</span>
+                                 </summary>
+                                 <div class="px-5 pb-5 text-sm text-[#616f89] dark:text-gray-400 leading-relaxed border-t border-border-light dark:border-border-dark pt-4">
+                                    Yes, go to 'Payment History' in the sidebar to view and download receipts for all your settled challans.
+                                 </div>
+                              </details>
+                           </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                           <a class="group p-4 bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark hover:border-primary/50 hover:shadow-md transition-all flex items-center gap-4" href="#">
+                              <div class="p-3 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                 <span class="material-symbols-outlined">menu_book</span>
+                              </div>
+                              <div>
+                                 <h3 class="font-bold text-[#111318] dark:text-white text-sm">User Guide</h3>
+                                 <p class="text-xs text-[#616f89] dark:text-gray-400 mt-1">Comprehensive guide to using the portal</p>
+                              </div>
+                           </a>
+                           <a class="group p-4 bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark hover:border-primary/50 hover:shadow-md transition-all flex items-center gap-4" href="#">
+                              <div class="p-3 rounded-lg bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 group-hover:bg-green-600 group-hover:text-white transition-colors">
+                                 <span class="material-symbols-outlined">gavel</span>
+                              </div>
+                              <div>
+                                 <h3 class="font-bold text-[#111318] dark:text-white text-sm">Traffic Rules</h3>
+                                 <p class="text-xs text-[#616f89] dark:text-gray-400 mt-1">Latest Motor Vehicles Act 2019</p>
+                              </div>
+                           </a>
+                           <a class="group p-4 bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark hover:border-primary/50 hover:shadow-md transition-all flex items-center gap-4" href="#">
+                              <div class="p-3 rounded-lg bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                                 <span class="material-symbols-outlined">play_circle</span>
+                              </div>
+                              <div>
+                                 <h3 class="font-bold text-[#111318] dark:text-white text-sm">Video Tutorials</h3>
+                                 <p class="text-xs text-[#616f89] dark:text-gray-400 mt-1">Step-by-step video instructions</p>
+                              </div>
+                           </a>
+                           <a class="group p-4 bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark hover:border-primary/50 hover:shadow-md transition-all flex items-center gap-4" href="#">
+                              <div class="p-3 rounded-lg bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 group-hover:bg-orange-600 group-hover:text-white transition-colors">
+                                 <span class="material-symbols-outlined">policy</span>
+                              </div>
+                              <div>
+                                 <h3 class="font-bold text-[#111318] dark:text-white text-sm">Privacy Policy</h3>
+                                 <p class="text-xs text-[#616f89] dark:text-gray-400 mt-1">How we handle your data</p>
+                              </div>
+                           </a>
+                        </div>
+                     </div>
+                     <div class="lg:col-span-1">
+                        <div class="sticky top-6 flex flex-col gap-6">
+                           <div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark shadow-sm overflow-hidden">
+                              <div class="p-6 border-b border-border-light dark:border-border-dark bg-gray-50/50 dark:bg-gray-800/20">
+                                 <h2 class="text-lg font-bold text-[#111318] dark:text-white">Still need help?</h2>
+                                 <p class="text-sm text-[#616f89] dark:text-gray-400 mt-1">Send us a message and we'll get back to you.</p>
+                              </div>
+                              <div class="p-6">
+                                 <form class="flex flex-col gap-4">
+                                    <div class="flex flex-col gap-1.5">
+                                       <label class="text-xs font-bold text-[#616f89] dark:text-gray-400 uppercase tracking-wider">Issue Category</label>
+                                       <select class="w-full rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-[#111318] dark:text-white focus:ring-primary focus:border-primary text-sm py-2.5">
+                                          <option>Payment Issue</option>
+                                          <option>Dispute Challan</option>
+                                          <option>Technical Problem</option>
+                                          <option>General Inquiry</option>
+                                       </select>
+                                    </div>
+                                    <div class="flex flex-col gap-1.5">
+                                       <label class="text-xs font-bold text-[#616f89] dark:text-gray-400 uppercase tracking-wider">Subject</label>
+                                       <input class="w-full rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-[#111318] dark:text-white focus:ring-primary focus:border-primary text-sm py-2.5 placeholder:text-gray-400" placeholder="Brief summary of issue" type="text"/>
+                                    </div>
+                                    <div class="flex flex-col gap-1.5">
+                                       <label class="text-xs font-bold text-[#616f89] dark:text-gray-400 uppercase tracking-wider">Message</label>
+                                       <textarea class="w-full rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-[#111318] dark:text-white focus:ring-primary focus:border-primary text-sm py-2.5 placeholder:text-gray-400 resize-none" placeholder="Describe your issue in detail..." rows="4"></textarea>
+                                    </div>
+                                    <button class="mt-2 w-full bg-primary hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20" type="button">
+                                    <span>Send Message</span>
+                                    <span class="material-symbols-outlined text-sm">send</span>
+                                    </button>
+                                 </form>
+                              </div>
+                           </div>
+                           <div class="bg-gradient-to-br from-primary/10 to-transparent p-6 rounded-xl border border-primary/10 flex flex-col gap-4">
+                              <div class="flex items-center gap-3">
+                                 <div class="bg-primary/20 p-2 rounded-full text-primary">
+                                    <span class="material-symbols-outlined">call</span>
+                                 </div>
+                                 <div>
+                                    <p class="text-xs font-bold text-primary uppercase tracking-wider">Helpline Number</p>
+                                    <p class="text-[#111318] dark:text-white font-bold text-lg">1800-11-2345</p>
+                                 </div>
+                              </div>
+                              <div class="h-px bg-primary/10 w-full"></div>
+                              <div class="flex items-center gap-3">
+                                 <div class="bg-primary/20 p-2 rounded-full text-primary">
+                                    <span class="material-symbols-outlined">mail</span>
+                                 </div>
+                                 <div>
+                                    <p class="text-xs font-bold text-primary uppercase tracking-wider">Email Support</p>
+                                    <p class="text-[#111318] dark:text-white font-bold text-sm">support@challansystem.gov</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- <footer class="mt-auto px-6 py-6 border-t border-border-light dark:border-border-dark">
+                  <div class="container mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center gap-4">
+                     <p class="text-sm text-[#616f89] dark:text-gray-500">© 2023 Challan Management System. All rights reserved.</p>
+                     <div class="flex gap-4">
+                        <a class="text-sm text-[#616f89] dark:text-gray-500 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+                        <a class="text-sm text-[#616f89] dark:text-gray-500 hover:text-primary transition-colors" href="#">Terms of Service</a>
+                     </div>
+                  </div>
+               </footer> -->
+            </div>
+         </main>
+      </div>
+   </body>
+</html>

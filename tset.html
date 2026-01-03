@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+   <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      <title>User Registration - Vehicle Challan Management System</title>
+      <!-- Fonts -->
+      <link href="https://fonts.googleapis.com" rel="preconnect"/>
+      <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+      <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+      <!-- Material Symbols -->
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+      <!-- Tailwind CSS -->
+      <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+      <!-- Theme Config -->
+      <script id="tailwind-config">
+         tailwind.config = {
+           darkMode: "class",
+           theme: {
+             extend: {
+               colors: {
+                 "primary": "#135bec",
+                 "primary-hover": "#1d4ed8",
+                 "background-light": "#f6f6f8",
+                 "background-dark": "#101622",
+                 "surface-light": "#ffffff",
+                 "surface-dark": "#1a2230",
+                 "border-light": "#dbdfe6",
+                 "border-dark": "#2d3748",
+                 "text-main": "#111318",
+                 "text-sub": "#616f89",
+               },
+               fontFamily: {
+                 "display": ["Public Sans", "sans-serif"]
+               },
+               borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+             },
+           },
+         }
+      </script>
+      <style>
+         /* Custom scrollbar for better aesthetic */
+         ::-webkit-scrollbar {
+         width: 8px;
+         }
+         ::-webkit-scrollbar-track {
+         background: transparent;
+         }
+         ::-webkit-scrollbar-thumb {
+         background-color: #cbd5e1;
+         border-radius: 20px;
+         }
+         .dark ::-webkit-scrollbar-thumb {
+         background-color: #475569;
+         }
+      </style>
+   </head>
+   <body class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased min-h-screen flex flex-col">
+      <!-- Header -->
+      <header class="w-full bg-surface-light dark:bg-surface-dark border-b border-border-light dark:border-border-dark px-6 py-4 sticky top-0 z-50">
+         <div class="max-w-[1280px] mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+               <div class="size-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined">local_police</span>
+               </div>
+               <h1 class="text-text-main dark:text-white text-lg font-bold leading-tight tracking-tight">Vehicle Challan Management System</h1>
+            </div>
+            <div class="hidden md:flex items-center gap-6">
+               <a class="text-sm font-medium text-text-sub hover:text-primary transition-colors" href="#">Help Center</a>
+               <span class="text-border-light dark:text-border-dark">|</span>
+               <div class="flex items-center gap-2">
+                  <span class="text-sm text-text-sub">Already have an account?</span>
+                  <a class="text-sm font-bold text-primary hover:text-primary-hover" href="#">Log in</a>
+               </div>
+            </div>
+         </div>
+      </header>
+      <!-- Main Content -->
+      <main class="flex-grow flex items-center justify-center p-4 md:p-8">
+         <div class="w-full max-w-[580px] bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-border-light dark:border-border-dark overflow-hidden">
+            <!-- Card Header -->
+            <div class="p-8 pb-0">
+               <h2 class="text-3xl font-black text-text-main dark:text-white tracking-tight mb-2">Create your account</h2>
+               <p class="text-text-sub dark:text-slate-400 text-base">Manage and settle your vehicle challans in one place.</p>
+            </div>
+            <!-- Info Note -->
+            <div class="px-8 mt-6">
+               <div class="bg-primary/5 border border-primary/20 rounded-lg p-4 flex gap-3 items-start">
+                  <span class="material-symbols-outlined text-primary text-xl mt-0.5">info</span>
+                  <p class="text-sm text-text-main dark:text-slate-200 font-medium leading-relaxed">
+                     Challans will be automatically linked to your account for easy tracking based on your verified details.
+                  </p>
+               </div>
+            </div>
+            <!-- Form -->
+            <form class="p-8 pt-6 flex flex-col gap-5">
+               <!-- Full Name -->
+               <div class="flex flex-col gap-2">
+                  <label class="text-text-main dark:text-white text-sm font-medium" for="fullname">Full Name</label>
+                  <input class="w-full h-12 px-4 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-background-dark text-text-main dark:text-white placeholder:text-text-sub focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" id="fullname" placeholder="Enter your full name" type="text"/>
+               </div>
+               <!-- Email Address -->
+               <div class="flex flex-col gap-2">
+                  <label class="text-text-main dark:text-white text-sm font-medium" for="email">Email Address</label>
+                  <div class="relative">
+                     <input class="w-full h-12 px-4 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-background-dark text-text-main dark:text-white placeholder:text-text-sub focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" id="email" placeholder="Enter your email address" type="email"/>
+                     <div class="absolute right-4 top-3 text-text-sub">
+                        <span class="material-symbols-outlined text-[20px]">mail</span>
+                     </div>
+                  </div>
+               </div>
+               <!-- Mobile Number -->
+               <div class="flex flex-col gap-2">
+                  <label class="text-text-main dark:text-white text-sm font-medium" for="mobile">Mobile Number</label>
+                  <div class="flex rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-background-dark overflow-hidden focus-within:ring-1 focus-within:ring-primary focus-within:border-primary transition-all">
+                     <div class="flex items-center gap-1 bg-gray-50 dark:bg-gray-800 px-3 border-r border-border-light dark:border-border-dark">
+                        <span class="material-symbols-outlined text-text-sub text-[18px]">flag</span>
+                        <select class="bg-transparent border-none text-sm font-medium text-text-main dark:text-white focus:ring-0 cursor-pointer py-2 pr-7 pl-1">
+                           <option value="+91">+91</option>
+                           <option value="+1">+1</option>
+                           <option value="+44">+44</option>
+                        </select>
+                     </div>
+                     <input class="flex-1 h-12 px-4 border-none bg-transparent text-text-main dark:text-white placeholder:text-text-sub focus:ring-0" id="mobile" placeholder="98765 43210" type="tel"/>
+                  </div>
+               </div>
+               <!-- Password Row -->
+               <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <!-- Password -->
+                  <div class="flex flex-col gap-2">
+                     <label class="text-text-main dark:text-white text-sm font-medium" for="password">Password</label>
+                     <div class="relative">
+                        <input class="w-full h-12 px-4 pr-10 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-background-dark text-text-main dark:text-white placeholder:text-text-sub focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" id="password" placeholder="Create password" type="password"/>
+                        <button class="absolute right-3 top-3 text-text-sub hover:text-text-main dark:hover:text-white transition-colors cursor-pointer" type="button">
+                        <span class="material-symbols-outlined text-[20px]">visibility_off</span>
+                        </button>
+                     </div>
+                  </div>
+                  <!-- Confirm Password -->
+                  <div class="flex flex-col gap-2">
+                     <label class="text-text-main dark:text-white text-sm font-medium" for="confirm-password">Confirm Password</label>
+                     <div class="relative">
+                        <input class="w-full h-12 px-4 pr-10 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-background-dark text-text-main dark:text-white placeholder:text-text-sub focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" id="confirm-password" placeholder="Confirm password" type="password"/>
+                     </div>
+                  </div>
+               </div>
+               <!-- Terms Checkbox -->
+               <div class="flex items-start gap-3 mt-1">
+                  <div class="relative flex items-center">
+                     <input class="peer h-5 w-5 cursor-pointer appearance-none rounded-md border border-border-light dark:border-border-dark checked:border-primary checked:bg-primary transition-all" id="terms" type="checkbox"/>
+                     <span class="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white opacity-0 peer-checked:opacity-100">
+                        <svg class="h-3.5 w-3.5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                           <path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+                        </svg>
+                     </span>
+                  </div>
+                  <label class="text-sm text-text-sub dark:text-slate-400 cursor-pointer select-none leading-tight" for="terms">
+                  I agree to the <a class="text-primary hover:text-primary-hover font-medium underline decoration-primary/30 underline-offset-2" href="#">Terms of Service</a> and <a class="text-primary hover:text-primary-hover font-medium underline decoration-primary/30 underline-offset-2" href="#">Privacy Policy</a>
+                  </label>
+               </div>
+               <!-- Submit Button -->
+               <button class="mt-2 w-full h-12 bg-primary hover:bg-primary-hover text-white text-base font-bold rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2" type="button">
+               Create Account
+               <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+               </button>
+               <!-- Mobile Login Link (visible on mobile only usually, but good for redundancy) -->
+               <div class="md:hidden text-center mt-2">
+                  <span class="text-sm text-text-sub">Already have an account?</span>
+                  <a class="text-sm font-bold text-primary hover:text-primary-hover ml-1" href="#">Log in</a>
+               </div>
+               <!-- Trust Badge -->
+               <div class="flex items-center justify-center gap-2 mt-4 pt-6 border-t border-border-light dark:border-border-dark">
+                  <span class="material-symbols-outlined text-green-600 text-[18px]">lock</span>
+                  <span class="text-xs font-medium text-text-sub uppercase tracking-wider">Secure &amp; Encrypted Registration</span>
+               </div>
+            </form>
+         </div>
+      </main>
+      <!-- Footeri decoration (Optional subtle pattern) -->
+      <div class="fixed bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent pointer-events-none"></div>
+   </body>
+</html>

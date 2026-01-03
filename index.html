@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+   <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      <title>Vishal Bike Mart - Manage Traffic Fines</title>
+      <link href="https://fonts.googleapis.com" rel="preconnect"/>
+      <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+      <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+      <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+      <script id="tailwind-config">
+         tailwind.config = {
+             darkMode: "class",
+             theme: {
+                 extend: {
+                     colors: {
+                         "primary": "#135bec",
+                         "background-light": "#f6f6f8",
+                         "background-dark": "#101622",
+                     },
+                     fontFamily: {
+                         "display": ["Public Sans", "sans-serif"]
+                     },
+                     borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                 },
+             },
+         }
+      </script>
+      <style>@keyframes fadeSlide {
+         0% { opacity: 0; transform: scale(1.05); }
+         10% { opacity: 1; transform: scale(1); }
+         33% { opacity: 1; transform: scale(1); }
+         43% { opacity: 0; transform: scale(1.05); }
+         100% { opacity: 0; transform: scale(1.05); }
+         }
+         .hero-carousel-item {
+         position: absolute;
+         inset: 0;
+         background-size: cover;
+         background-position: center;
+         opacity: 0;
+         animation: fadeSlide 15s infinite;
+         }
+         .hero-carousel-item:nth-child(1) { animation-delay: 0s; }
+         .hero-carousel-item:nth-child(2) { animation-delay: 5s; }
+         .hero-carousel-item:nth-child(3) { animation-delay: 10s; }
+      </style>
+   </head>
+   <body class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white font-display overflow-x-hidden">
+      <header class="sticky top-0 z-50 w-full bg-white/95 dark:bg-[#111318]/95 backdrop-blur-sm border-b border-[#f0f2f4] dark:border-[#222]">
+         <div class="px-4 md:px-10 py-3 flex items-center justify-between max-w-7xl mx-auto">
+            <div class="flex items-center gap-2">
+               <span class="material-symbols-outlined text-primary text-3xl">local_police</span>
+               <h2 class="text-[#111318] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Vishal Bike Mart</h2>
+            </div>
+            <div class="hidden lg:flex items-center gap-8">
+               <nav class="flex gap-6">
+                  <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+                  <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#about-us">About Us</a>
+                  <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#how-it-works">How It Works</a>
+                  <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#features">Features</a>
+                  <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#reviews">Reviews</a>
+                  <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#contactUs">Contact</a>
+               </nav>
+               <div class="flex gap-2">
+                  <button 
+                  onclick="window.location.href='/login.html';"
+                  class="flex items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f0f2f4] dark:bg-gray-800 text-[#111318] dark:text-white text-sm font-bold hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                  Login
+                  </button>
+                  <button onclick="window.location.href='/signUp.html';" class="flex items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20">
+                  Sign Up
+                  </button>
+               </div>
+            </div>
+            <button class="lg:hidden p-2 text-gray-600 dark:text-gray-300" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+            <span class="material-symbols-outlined">menu</span>
+            </button>
+         </div>
+         <div class="hidden lg:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-[#111318]" id="mobile-menu">
+            <nav class="flex flex-col p-4 gap-4">
+               <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+               <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#about-us" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About Us</a>
+               <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#how-it-works" onclick="document.getElementById('mobile-menu').classList.add('hidden')">How It Works</a>
+               <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#features" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Features</a>
+               <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#reviews" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Reviews</a>
+               <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#contactUs" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a>
+               <div class="flex flex-col gap-2 mt-2">
+                  <button class="flex items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f0f2f4] dark:bg-gray-800 text-[#111318] dark:text-white text-sm font-bold hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" onclick="window.location.href='/login.html';">
+                  Login
+                  </button>
+                  <button class="flex items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20" onclick="window.location.href='/signUp.html';">
+                  Sign Up
+                  </button>
+               </div>
+            </nav>
+         </div>
+      </header>
+      <section class="relative w-full h-[650px] bg-background-dark overflow-hidden flex items-center justify-center">
+         <div class="absolute inset-0 w-full h-full">
+            <div class="hero-carousel-item" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBriAknerwPRqDjDZES3BMKrXvI_apGxXY9NqYl7p4CTX5_P1a1OqGZzqAzEcQbq1d9_FgeAQXzhM_G1rKr7jizr5yEbW481puiCD5XhW5gR2R6uR4AD-tcgaYf_2s_DeyxydTG0uomqmjXXnLu1IIFP8CN3736f_Kk4GKZo5fENVEM3CDRNOht6esZLc4ME4Uy2q_NtEk5v_IBD6hMMD4FYGIUQNG8vYi6cJSSCDo78G-AftOeixLMjw1icJ-Nsbul5nFXsN94U3A');"></div>
+            <div class="hero-carousel-item" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAktMuphMllkZCevFHTjmr8SXZG5SmOy92NW1XxMN2GZBVEzVYKdoCB_6ptJpr0UiNWeyzyfYWHZu1lXv-HcOVXOSiDafX-_WHtKxImWO81WidkzQmTRbgEFjcnP_79HSYUBqBncmVwm9j9wSwksYCrEM3X61A2ETs4vi-QdobrSv4z2QGXdWGHgwqBs-Iy0sEX0BMtb6mXRBbffeik3W9Wyh-3mO4CLCrs43OWzn0cpyenB0FBeuFM3BFDVH3rbVD4XBznlejUsfk');"></div>
+            <div class="hero-carousel-item" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCNt526SEje8zoyCYE0mlGgpUieVVECRAXzVyyrIidbzWs6sw0fthrtImCdnTSjPTcP_N8XLeWHigc5-vmP59yjTNW10RKE-bmUsgJv3HsSzpfrQQtc6EzrWswJg5iIFgU3zHlklvFgJuOtEL2jBN0rk_XkfCvgY5RNAUVNgo6fpf4Ggin3AbYeTU9dZ2vRYX57Evk9OcQUuxyLLbbswdY_FNeUA_r6_R_ycEjNtPYyMj5FNjvL-lwRzJL8r4RooozQ0dsO26OTp3Q');"></div>
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>
+         </div>
+         <div class="relative z-10 w-full max-w-4xl mx-auto px-4 flex flex-col gap-8 text-center items-center animate-fade-in-up">
+            <div class="flex flex-col gap-4">
+               <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider w-fit mx-auto">
+                  <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Official System
+               </div>
+               <h1 class="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight drop-shadow-xl">
+                  Check &amp; Manage Your <br/> <span class="text-blue-400">Vehicle Challans</span> Instantly
+               </h1>
+               <h2 class="text-gray-200 text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto drop-shadow-md">
+                  The easiest way to track traffic fines, make secure payments, or hire legal help for disputes—all from the comfort of your home.
+               </h2>
+            </div>
+            <div class="flex flex-col w-full max-w-[600px] bg-white dark:bg-[#1a202c] p-2 rounded-2xl shadow-2xl">
+               <div class="flex w-full items-stretch rounded-xl h-14 md:h-16">
+                  <div class="text-gray-400 flex items-center justify-center pl-4">
+                     <span class="material-symbols-outlined">search</span>
+                  </div>
+                  <input class="w-full flex-1 bg-transparent text-[#111318] dark:text-white border-none focus:ring-0 px-4 h-full placeholder:text-gray-400 text-lg font-medium" placeholder="Enter Vehicle Number (e.g. MH01AB1234)"/>
+                  <div class="flex items-center pr-1.5">
+                     <button class="h-11 md:h-12 px-8 bg-primary text-white text-base font-bold rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap shadow-lg">
+                     Check
+                     </button>
+                  </div>
+               </div>
+            </div>
+            <p class="text-xs text-white/80 flex items-center gap-1.5 font-medium mt-2 bg-black/30 px-3 py-1 rounded-full backdrop-blur-sm">
+               <span class="material-symbols-outlined text-[16px]">lock</span>
+               Official Data Source • 256-bit Encryption
+            </p>
+         </div>
+      </section>
+      <section class="py-16 md:py-24 bg-white dark:bg-background-dark" id="about-us">
+         <div class="max-w-7xl mx-auto px-4 md:px-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+               <div class="flex flex-col gap-6">
+                  <div>
+                     <h2 class="text-primary font-bold tracking-wider uppercase text-sm mb-2">About Us</h2>
+                     <h3 class="text-[#111318] dark:text-white text-3xl md:text-4xl font-bold leading-tight">
+                        Driving Transparency &amp; Efficiency on Roads
+                     </h3>
+                  </div>
+                  <p class="text-[#616f89] dark:text-gray-400 text-lg leading-relaxed">
+                     Our system is dedicated to streamlining the process of managing traffic violations. We bridge the gap between citizens and traffic authorities by providing a centralized, transparent, and user-friendly platform.
+                  </p>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+                     <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary flex-shrink-0">
+                           <span class="material-symbols-outlined">flag</span>
+                        </div>
+                        <div>
+                           <h4 class="font-bold text-[#111318] dark:text-white">Our Mission</h4>
+                           <p class="text-sm text-[#616f89] dark:text-gray-400 mt-1">To simplify legal traffic proceedings and ensure cleaner, safer roads for everyone.</p>
+                        </div>
+                     </div>
+                     <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-green-50 dark:bg-green-900/20 flex items-center justify-center text-green-600 flex-shrink-0">
+                           <span class="material-symbols-outlined">diamond</span>
+                        </div>
+                        <div>
+                           <h4 class="font-bold text-[#111318] dark:text-white">Core Values</h4>
+                           <p class="text-sm text-[#616f89] dark:text-gray-400 mt-1">Built on the pillars of integrity, transparency, and public service accessibility.</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="pt-6 border-t border-gray-100 dark:border-gray-800 flex flex-col sm:flex-row gap-8">
+                     <div class="flex flex-col">
+                        <span class="text-3xl font-black text-[#111318] dark:text-white">5M+</span>
+                        <span class="text-sm text-[#616f89] dark:text-gray-400">Challans Settled</span>
+                     </div>
+                     <div class="flex flex-col">
+                        <span class="text-3xl font-black text-[#111318] dark:text-white">99%</span>
+                        <span class="text-sm text-[#616f89] dark:text-gray-400">Satisfaction Rate</span>
+                     </div>
+                     <div class="flex flex-col">
+                        <span class="text-3xl font-black text-[#111318] dark:text-white">24/7</span>
+                        <span class="text-sm text-[#616f89] dark:text-gray-400">Support Access</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="relative">
+                  <div class="aspect-square rounded-2xl bg-gradient-to-tr from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 overflow-hidden relative shadow-2xl">
+                     <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-3/4 h-3/4 bg-white dark:bg-[#1a202c] rounded-xl shadow-lg p-6 flex flex-col gap-4 rotate-3 opacity-90">
+                           <div class="flex items-center gap-3 border-b border-gray-100 dark:border-gray-700 pb-4">
+                              <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                 <span class="material-symbols-outlined">security</span>
+                              </div>
+                              <div class="flex flex-col">
+                                 <span class="font-bold text-[#111318] dark:text-white">Secure System</span>
+                                 <span class="text-xs text-green-500 font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">check</span> Verified</span>
+                              </div>
+                           </div>
+                           <div class="space-y-3">
+                              <div class="h-2 w-full bg-gray-100 dark:bg-gray-700 rounded"></div>
+                              <div class="h-2 w-2/3 bg-gray-100 dark:bg-gray-700 rounded"></div>
+                              <div class="h-2 w-3/4 bg-gray-100 dark:bg-gray-700 rounded"></div>
+                           </div>
+                           <div class="mt-auto flex justify-end">
+                              <div class="px-3 py-1 bg-primary text-white text-xs font-bold rounded">View Report</div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="absolute -top-6 -right-6 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
+                     <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-400/10 rounded-full blur-2xl"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="py-16 md:py-24 bg-background-light dark:bg-[#0d121c] px-4 md:px-10" id="how-it-works">
+         <div class="max-w-7xl mx-auto flex flex-col gap-10">
+            <div class="flex flex-col gap-4 text-center items-center">
+               <h2 class="text-[#111318] dark:text-white text-3xl md:text-4xl font-bold leading-tight tracking-[-0.033em]">
+                  How It Works
+               </h2>
+               <p class="text-[#616f89] dark:text-gray-400 text-base md:text-lg max-w-2xl">
+                  Follow these simple steps to clear your dues or contest fines without visiting any office.
+               </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+               <div class="flex flex-col gap-4 p-6 bg-white dark:bg-[#1a202c] rounded-xl border border-[#dbdfe6] dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                     <span class="material-symbols-outlined text-3xl">directions_car</span>
+                  </div>
+                  <div>
+                     <h3 class="text-[#111318] dark:text-white text-lg font-bold mb-2">Enter Vehicle Number</h3>
+                     <p class="text-[#616f89] dark:text-gray-400 text-sm">Input your vehicle registration number to get started with the search.</p>
+                  </div>
+               </div>
+               <div class="flex flex-col gap-4 p-6 bg-white dark:bg-[#1a202c] rounded-xl border border-[#dbdfe6] dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                     <span class="material-symbols-outlined text-3xl">verified_user</span>
+                  </div>
+                  <div>
+                     <h3 class="text-[#111318] dark:text-white text-lg font-bold mb-2">Verify Details</h3>
+                     <p class="text-[#616f89] dark:text-gray-400 text-sm">Confirm ownership via a secure OTP sent to your registered mobile.</p>
+                  </div>
+               </div>
+               <div class="flex flex-col gap-4 p-6 bg-white dark:bg-[#1a202c] rounded-xl border border-[#dbdfe6] dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                     <span class="material-symbols-outlined text-3xl">toc</span>
+                  </div>
+                  <div>
+                     <h3 class="text-[#111318] dark:text-white text-lg font-bold mb-2">View Pending Challans</h3>
+                     <p class="text-[#616f89] dark:text-gray-400 text-sm">See a comprehensive list of all outstanding fines with photo proof.</p>
+                  </div>
+               </div>
+               <div class="flex flex-col gap-4 p-6 bg-white dark:bg-[#1a202c] rounded-xl border border-[#dbdfe6] dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                     <span class="material-symbols-outlined text-3xl">payments</span>
+                  </div>
+                  <div>
+                     <h3 class="text-[#111318] dark:text-white text-lg font-bold mb-2">Pay or Contest</h3>
+                     <p class="text-[#616f89] dark:text-gray-400 text-sm">Make a secure payment instantly or hire an advocate to contest the fine.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="py-16 md:py-24 bg-white dark:bg-background-dark px-4 md:px-10" id="features">
+         <div class="max-w-7xl mx-auto flex flex-col gap-12">
+            <div class="flex flex-col gap-4 md:flex-row md:justify-between md:items-end border-b border-gray-100 dark:border-gray-800 pb-8">
+               <div class="flex flex-col gap-2 max-w-2xl">
+                  <h2 class="text-[#111318] dark:text-white text-3xl md:text-4xl font-bold leading-tight tracking-[-0.033em]">
+                     Key Features
+                  </h2>
+                  <p class="text-[#616f89] dark:text-gray-400 text-base">Why choose our platform for your vehicle management needs?</p>
+               </div>
+               <button class="text-primary font-bold hover:underline flex items-center gap-1">
+               View all features <span class="material-symbols-outlined text-sm">arrow_forward</span>
+               </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+               <div class="flex flex-col gap-4">
+                  <div class="w-14 h-14 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary mb-2">
+                     <span class="material-symbols-outlined text-3xl">schedule</span>
+                  </div>
+                  <h3 class="text-[#111318] dark:text-white text-xl font-bold">Real-time Updates</h3>
+                  <p class="text-[#616f89] dark:text-gray-400">Our system fetches the latest challan data directly from official government servers, ensuring you never miss a deadline.</p>
+               </div>
+               <div class="flex flex-col gap-4">
+                  <div class="w-14 h-14 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary mb-2">
+                     <span class="material-symbols-outlined text-3xl">lock</span>
+                  </div>
+                  <h3 class="text-[#111318] dark:text-white text-xl font-bold">Secure Payments</h3>
+                  <p class="text-[#616f89] dark:text-gray-400">We use bank-grade encryption for all transactions. Your financial data is never stored on our servers.</p>
+               </div>
+               <div class="flex flex-col gap-4">
+                  <div class="w-14 h-14 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary mb-2">
+                     <span class="material-symbols-outlined text-3xl">balance</span>
+                  </div>
+                  <h3 class="text-[#111318] dark:text-white text-xl font-bold">Legal Support</h3>
+                  <p class="text-[#616f89] dark:text-gray-400">Facing an incorrect fine? Get direct access to experienced legal professionals for dispute resolution.</p>
+               </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4 border-t border-gray-100 dark:border-gray-800 pt-8">
+               <div class="flex flex-col gap-4">
+                  <div class="w-14 h-14 rounded-lg bg-green-50 dark:bg-green-900/20 flex items-center justify-center text-green-600 dark:text-green-400 mb-2">
+                     <span class="material-symbols-outlined text-3xl">sync</span>
+                  </div>
+                  <h3 class="text-[#111318] dark:text-white text-xl font-bold">Real-time Challan Status</h3>
+                  <p class="text-[#616f89] dark:text-gray-400">Instantly check the current status of your challan, whether it's pending, paid, or sent to court, with real-time syncing.</p>
+               </div>
+               <div class="flex flex-col gap-4">
+                  <div class="w-14 h-14 rounded-lg bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center text-purple-600 dark:text-purple-400 mb-2">
+                     <span class="material-symbols-outlined text-3xl">mark_email_read</span>
+                  </div>
+                  <h3 class="text-[#111318] dark:text-white text-xl font-bold">Auto Email Confirmation</h3>
+                  <p class="text-[#616f89] dark:text-gray-400">Receive an immediate automated email confirmation with payment details and receipt upon successful challan submission.</p>
+               </div>
+               <div class="flex flex-col gap-4">
+                  <div class="w-14 h-14 rounded-lg bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-600 dark:text-orange-400 mb-2">
+                     <span class="material-symbols-outlined text-3xl">notifications_active</span>
+                  </div>
+                  <h3 class="text-[#111318] dark:text-white text-xl font-bold">New Challan Alerts</h3>
+                  <p class="text-[#616f89] dark:text-gray-400">Register your vehicle once and get automated email notifications whenever a new challan is issued against your registration number.</p>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="py-16 md:py-24 bg-primary/5 dark:bg-[#131824]" id="video-testimonials">
+         <div class="max-w-7xl mx-auto flex flex-col gap-10">
+            <div class="text-center max-w-3xl mx-auto">
+               <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-bold w-fit uppercase tracking-wider mb-4">
+                  <span class="material-symbols-outlined text-sm">play_circle</span> Watch Reviews
+               </div>
+               <h2 class="text-[#111318] dark:text-white text-3xl md:text-4xl font-bold leading-tight mb-4">
+                  See What Our Users Are Saying
+               </h2>
+               <p class="text-[#616f89] dark:text-gray-400 text-lg">
+                  Real stories from vehicle owners who simplified their fine management with our system.
+               </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+               <div class="flex flex-col gap-4 bg-white dark:bg-[#1a202c] p-4 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                  <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-gray-900 shadow-inner group cursor-pointer">
+                     <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" class="w-full h-full" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/LXb3EKWsInQ" title="Customer Review 1"></iframe>
+                  </div>
+                  <div class="px-2 pb-2">
+                     <div class="flex items-center gap-1 text-yellow-400 text-sm mb-2">
+                        <span class="material-symbols-outlined text-[18px]">star</span>
+                        <span class="material-symbols-outlined text-[18px]">star</span>
+                        <span class="material-symbols-outlined text-[18px]">star</span>
+                        <span class="material-symbols-outlined text-[18px]">star</span>
+                        <span class="material-symbols-outlined text-[18px]">star</span>
+                     </div>
+                     <h3 class="font-bold text-[#111318] dark:text-white text-lg">"Absolutely a lifesaver!"</h3>
+                     <p class="text-sm text-[#616f89] dark:text-gray-400 mt-1">Rajesh explains how he cleared 3 years of fines in 10 minutes.</p>
+                  </div>
+               </div>
+               <div class="flex flex-col gap-4 bg-white dark:bg-[#1a202c] p-4 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                  <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-gray-900 shadow-inner group cursor-pointer">
+                     <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" class="w-full h-full" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/LXb3EKWsInQ" title="Customer Review 2"></iframe>
+                  </div>
+                  <div class="px-2 pb-2">
+                     <div class="flex items-center gap-1 text-yellow-400 text-sm mb-2">
+                        <span class="material-symbols-outlined text-[18px]">star</span>
+                        <span class="material-symbols-outlined text-[18px]">star</span>
+                        <span class="material-symbols-outlined text-[18px]">star</span>
+                        <span class="material-symbols-outlined text-[18px]">star</span>
+                        <span class="material-symbols-outlined text-[18px]">star_half</span>
+                     </div>
+                     <h3 class="font-bold text-[#111318] dark:text-white text-lg">"Legal support was excellent"</h3>
+                     <p class="text-sm text-[#616f89] dark:text-gray-400 mt-1">Anita shares her experience contesting a wrongful parking ticket.</p>
+                  </div>
+               </div>
+               <div class="flex flex-col gap-4 bg-white dark:bg-[#1a202c] p-4 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                  <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-gray-900 shadow-inner group cursor-pointer">
+                     <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" class="w-full h-full" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/LXb3EKWsInQ" title="Customer Review 3"></iframe>
+                  </div>
+                  <div class="px-2 pb-2">
+                     <div class="flex items-center gap-1 text-yellow-400 text-sm mb-2">
+                        <span class="material-symbols-outlined text-[18px]">star</span>
+                        <span class="material-symbols-outlined text-[18px]">star</span>
+                        <span class="material-symbols-outlined text-[18px]">star</span>
+                        <span class="material-symbols-outlined text-[18px]">star</span>
+                        <span class="material-symbols-outlined text-[18px]">star</span>
+                     </div>
+                     <h3 class="font-bold text-[#111318] dark:text-white text-lg">"Fastest way to pay"</h3>
+                     <p class="text-sm text-[#616f89] dark:text-gray-400 mt-1">Vikram demos how quick the payment process actually is.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="py-16 md:py-24 bg-background-light dark:bg-[#0d121c] px-4 md:px-10" id="reviews">
+         <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+               <h2 class="text-[#111318] dark:text-white text-3xl md:text-4xl font-bold leading-tight tracking-[-0.033em]">
+                  What Our Users Say
+               </h2>
+               <p class="text-[#616f89] dark:text-gray-400 mt-4 text-base md:text-lg">
+                  Trusted by thousands of vehicle owners nationwide.
+               </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+               <div class="bg-white dark:bg-[#1a202c] p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
+                  <div class="flex items-center gap-2 mb-4 text-yellow-400">
+                     <span class="material-symbols-outlined text-sm">star</span>
+                     <span class="material-symbols-outlined text-sm">star</span>
+                     <span class="material-symbols-outlined text-sm">star</span>
+                     <span class="material-symbols-outlined text-sm">star</span>
+                     <span class="material-symbols-outlined text-sm">star</span>
+                  </div>
+                  <p class="text-[#111318] dark:text-gray-200 mb-6 italic">"The process was incredibly smooth. I found a pending challan I didn't even know about and paid it in minutes. The receipt was emailed instantly!"</p>
+                  <div class="flex items-center gap-3">
+                     <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">AS</div>
+                     <div>
+                        <h4 class="font-bold text-sm text-[#111318] dark:text-white">Amit Sharma</h4>
+                        <p class="text-xs text-[#616f89]">Delhi</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="bg-white dark:bg-[#1a202c] p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
+                  <div class="flex items-center gap-2 mb-4 text-yellow-400">
+                     <span class="material-symbols-outlined text-sm">star</span>
+                     <span class="material-symbols-outlined text-sm">star</span>
+                     <span class="material-symbols-outlined text-sm">star</span>
+                     <span class="material-symbols-outlined text-sm">star</span>
+                     <span class="material-symbols-outlined text-sm">star_half</span>
+                  </div>
+                  <p class="text-[#111318] dark:text-gray-200 mb-6 italic">"I had a wrong challan issued against my car. The advocate support feature helped me contest it without having to visit the court."</p>
+                  <div class="flex items-center gap-3">
+                     <div class="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 font-bold">RP</div>
+                     <div>
+                        <h4 class="font-bold text-sm text-[#111318] dark:text-white">Riya Patel</h4>
+                        <p class="text-xs text-[#616f89]">Mumbai</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="bg-white dark:bg-[#1a202c] p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
+                  <div class="flex items-center gap-2 mb-4 text-yellow-400">
+                     <span class="material-symbols-outlined text-sm">star</span>
+                     <span class="material-symbols-outlined text-sm">star</span>
+                     <span class="material-symbols-outlined text-sm">star</span>
+                     <span class="material-symbols-outlined text-sm">star</span>
+                     <span class="material-symbols-outlined text-sm">star</span>
+                  </div>
+                  <p class="text-[#111318] dark:text-gray-200 mb-6 italic">"The automated alerts are a lifesaver. I registered my bike and now I get an email whenever there's a new fine. Highly recommended."</p>
+                  <div class="flex items-center gap-3">
+                     <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 font-bold">VK</div>
+                     <div>
+                        <h4 class="font-bold text-sm text-[#111318] dark:text-white">Vikram Kumar</h4>
+                        <p class="text-xs text-[#616f89]">Bangalore</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="py-16 md:py-24 bg-background-light dark:bg-background-dark px-4 md:px-10">
+         <div class="max-w-7xl mx-auto flex flex-col gap-10">
+            <div class="text-center flex flex-col gap-2">
+               <h2 class="text-[#111318] dark:text-white text-3xl font-bold">Frequently Asked Questions</h2>
+               <p class="text-[#616f89] dark:text-gray-400">Everything you need to know about the challan system.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+               <div class="flex flex-col gap-4">
+                  <details class="group bg-white dark:bg-[#1a202c] rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 transition-all duration-300">
+                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-[#111318] dark:text-white">
+                        <span>How do I check my pending challans?</span>
+                        <span class="transition group-open:rotate-180">
+                        <span class="material-symbols-outlined">expand_more</span>
+                        </span>
+                     </summary>
+                     <div class="text-[#616f89] dark:text-gray-400 px-6 pb-6 text-sm leading-relaxed">
+                        Simply enter your vehicle registration number in the search bar on our homepage. We will fetch the latest data from the central traffic database.
+                     </div>
+                  </details>
+                  <details class="group bg-white dark:bg-[#1a202c] rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 transition-all duration-300">
+                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-[#111318] dark:text-white">
+                        <span>Is the payment process secure?</span>
+                        <span class="transition group-open:rotate-180">
+                        <span class="material-symbols-outlined">expand_more</span>
+                        </span>
+                     </summary>
+                     <div class="text-[#616f89] dark:text-gray-400 px-6 pb-6 text-sm leading-relaxed">
+                        Yes, absolutely. We use industry-standard 256-bit SSL encryption for all transactions. We do not store your banking details.
+                     </div>
+                  </details>
+                  <details class="group bg-white dark:bg-[#1a202c] rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 transition-all duration-300">
+                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-[#111318] dark:text-white">
+                        <span>Can I contest a challan?</span>
+                        <span class="transition group-open:rotate-180">
+                        <span class="material-symbols-outlined">expand_more</span>
+                        </span>
+                     </summary>
+                     <div class="text-[#616f89] dark:text-gray-400 px-6 pb-6 text-sm leading-relaxed">
+                        Yes. If you believe a challan has been issued incorrectly, you can use our 'Contest' feature to connect with legal experts.
+                     </div>
+                  </details>
+                  <details class="group bg-white dark:bg-[#1a202c] rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 transition-all duration-300">
+                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-[#111318] dark:text-white">
+                        <span>How quickly is the status updated?</span>
+                        <span class="transition group-open:rotate-180">
+                        <span class="material-symbols-outlined">expand_more</span>
+                        </span>
+                     </summary>
+                     <div class="text-[#616f89] dark:text-gray-400 px-6 pb-6 text-sm leading-relaxed">
+                        Status updates are typically instant. In rare cases, government servers may take up to 24 hours to reflect the payment.
+                     </div>
+                  </details>
+                  <details class="group bg-white dark:bg-[#1a202c] rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 transition-all duration-300">
+                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-[#111318] dark:text-white">
+                        <span>Do I need to register to check fines?</span>
+                        <span class="transition group-open:rotate-180">
+                        <span class="material-symbols-outlined">expand_more</span>
+                        </span>
+                     </summary>
+                     <div class="text-[#616f89] dark:text-gray-400 px-6 pb-6 text-sm leading-relaxed">
+                        No, you can check fines as a guest. However, registering allows you to receive automated alerts for new challans.
+                     </div>
+                  </details>
+               </div>
+               <div class="flex flex-col gap-4">
+                  <details class="group bg-white dark:bg-[#1a202c] rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 transition-all duration-300">
+                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-[#111318] dark:text-white">
+                        <span>What payment methods are accepted?</span>
+                        <span class="transition group-open:rotate-180">
+                        <span class="material-symbols-outlined">expand_more</span>
+                        </span>
+                     </summary>
+                     <div class="text-[#616f89] dark:text-gray-400 px-6 pb-6 text-sm leading-relaxed">
+                        We accept all major credit/debit cards, net banking, UPI, and popular mobile wallets for your convenience.
+                     </div>
+                  </details>
+                  <details class="group bg-white dark:bg-[#1a202c] rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 transition-all duration-300">
+                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-[#111318] dark:text-white">
+                        <span>Can I pay fines for multiple vehicles?</span>
+                        <span class="transition group-open:rotate-180">
+                        <span class="material-symbols-outlined">expand_more</span>
+                        </span>
+                     </summary>
+                     <div class="text-[#616f89] dark:text-gray-400 px-6 pb-6 text-sm leading-relaxed">
+                        Yes, registered users can add multiple vehicles to their dashboard and manage payments for all of them from a single account.
+                     </div>
+                  </details>
+                  <details class="group bg-white dark:bg-[#1a202c] rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 transition-all duration-300">
+                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-[#111318] dark:text-white">
+                        <span>Is there a service fee for payments?</span>
+                        <span class="transition group-open:rotate-180">
+                        <span class="material-symbols-outlined">expand_more</span>
+                        </span>
+                     </summary>
+                     <div class="text-[#616f89] dark:text-gray-400 px-6 pb-6 text-sm leading-relaxed">
+                        We charge a nominal convenience fee to maintain our platform and provide secure transaction services. The exact amount is displayed before payment.
+                     </div>
+                  </details>
+                  <details class="group bg-white dark:bg-[#1a202c] rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 transition-all duration-300">
+                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-[#111318] dark:text-white">
+                        <span>How do I get a receipt?</span>
+                        <span class="transition group-open:rotate-180">
+                        <span class="material-symbols-outlined">expand_more</span>
+                        </span>
+                     </summary>
+                     <div class="text-[#616f89] dark:text-gray-400 px-6 pb-6 text-sm leading-relaxed">
+                        A digital receipt is automatically sent to your registered email address immediately after a successful payment. You can also download it from your dashboard.
+                     </div>
+                  </details>
+                  <details class="group bg-white dark:bg-[#1a202c] rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 transition-all duration-300">
+                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-[#111318] dark:text-white">
+                        <span>What if my payment fails but money is deducted?</span>
+                        <span class="transition group-open:rotate-180">
+                        <span class="material-symbols-outlined">expand_more</span>
+                        </span>
+                     </summary>
+                     <div class="text-[#616f89] dark:text-gray-400 px-6 pb-6 text-sm leading-relaxed">
+                        If a transaction fails, the deducted amount is usually refunded to the source account within 5-7 business days automatically. Contact support if issues persist.
+                     </div>
+                  </details>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="py-16 md:py-24 bg-white dark:bg-[#0d121c] px-4 md:px-10 border-t border-gray-100 dark:border-gray-800" id="contactUs">
+         <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+               <h2 class="text-[#111318] dark:text-white text-3xl md:text-4xl font-bold leading-tight tracking-[-0.033em]">
+                  Get in Touch
+               </h2>
+               <p class="text-[#616f89] dark:text-gray-400 mt-4 text-base md:text-lg">
+                  Have questions or need assistance? We are here to help.
+               </p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+               <div class="bg-gray-50 dark:bg-[#1a202c] p-8 md:p-10 rounded-2xl shadow-sm h-full flex flex-col">
+                  <div class="mb-6">
+                     <h3 class="text-2xl font-bold text-[#111318] dark:text-white">Send us a Message</h3>
+                     <p class="text-gray-500 text-sm mt-2">Fill out the form below and we'll get back to you shortly.</p>
+                  </div>
+                  <form class="flex flex-col gap-5 flex-grow">
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="space-y-1.5">
+                           <label class="text-xs font-bold uppercase tracking-wider text-gray-500" for="name">Name</label>
+                           <input class="w-full bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-[#111318] dark:text-white placeholder:text-gray-400 shadow-sm" id="name" placeholder="Enter your name" type="text"/>
+                        </div>
+                        <div class="space-y-1.5">
+                           <label class="text-xs font-bold uppercase tracking-wider text-gray-500" for="email">Email</label>
+                           <input class="w-full bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-[#111318] dark:text-white placeholder:text-gray-400 shadow-sm" id="email" placeholder="Enter your email" type="email"/>
+                        </div>
+                     </div>
+                     <div class="space-y-1.5">
+                        <label class="text-xs font-bold uppercase tracking-wider text-gray-500" for="subject">Subject</label>
+                        <input class="w-full bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-[#111318] dark:text-white placeholder:text-gray-400 shadow-sm" id="subject" placeholder="What is this regarding?" type="text"/>
+                     </div>
+                     <div class="space-y-1.5 flex-grow">
+                        <label class="text-xs font-bold uppercase tracking-wider text-gray-500" for="message">Message</label>
+                        <textarea class="w-full bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-[#111318] dark:text-white placeholder:text-gray-400 resize-none min-h-[160px] shadow-sm" id="message" placeholder="Type your message here..."></textarea>
+                     </div>
+                     <div class="mt-4">
+                        <button class="w-full py-4 bg-primary text-white font-bold rounded-lg hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 transition-all shadow-md shadow-blue-500/20">
+                        Send Message
+                        </button>
+                     </div>
+                  </form>
+               </div>
+               <div class="flex flex-col gap-8 h-full">
+                  <div class="bg-[#f6f6f8] dark:bg-[#1a202c] p-8 md:p-10 rounded-2xl flex flex-col gap-6">
+                     <h3 class="text-xl font-bold text-[#111318] dark:text-white">Contact Information</h3>
+                     <div class="flex flex-col gap-5">
+                        <div class="flex items-start gap-4">
+                           <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary flex-shrink-0">
+                              <span class="material-symbols-outlined">mail</span>
+                           </div>
+                           <div>
+                              <h4 class="font-bold text-[#111318] dark:text-white text-sm">Email Us</h4>
+                              <p class="text-[#616f89] dark:text-gray-400 text-sm">vihalbikemart@gmail.com</p>
+                           </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                           <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary flex-shrink-0">
+                              <span class="material-symbols-outlined">call</span>
+                           </div>
+                           <div>
+                              <h4 class="font-bold text-[#111318] dark:text-white text-sm">Call Us</h4>
+                              <p class="text-[#616f89] dark:text-gray-400 text-sm">+1 (800) 123-4567</p>
+                           </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                           <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary flex-shrink-0">
+                              <span class="material-symbols-outlined">location_on</span>
+                           </div>
+                           <div>
+                              <h4 class="font-bold text-[#111318] dark:text-white text-sm">Visit Us</h4>
+                              <p class="text-[#616f89] dark:text-gray-400 text-sm">Noida</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="flex-grow w-full rounded-2xl overflow-hidden shadow-sm h-64 md:h-auto min-h-[300px]">
+                     <iframe allowfullscreen="" class="w-full h-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153167!3d-37.81732767975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d3a77a92292!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sin!4v1633072648754!5m2!1sen!2sin" style="filter: grayscale(1) contrast(1.2) opacity(0.8);"></iframe>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <footer class="bg-[#111318] text-white py-16 px-4 md:px-10">
+         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+            <div class="flex flex-col gap-4">
+               <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary text-2xl">local_police</span>
+                  <h3 class="text-xl font-bold">Vishal Bike Mart</h3>
+               </div>
+               <p class="text-gray-400 text-sm leading-relaxed">
+                  Simplifying traffic fine management for everyone. Check, pay, and resolve disputes in one place.
+               </p>
+               <div class="flex gap-4 mt-2">
+                  <a class="text-gray-400 hover:text-white transition-colors" href="#">
+                  <span class="material-symbols-outlined">public</span>
+                  </a>
+                  <a class="text-gray-400 hover:text-white transition-colors" href="#">
+                  <span class="material-symbols-outlined">alternate_email</span>
+                  </a>
+               </div>
+            </div>
+            <div class="flex flex-col gap-4">
+               <h4 class="font-bold text-lg">Quick Links</h4>
+               <ul class="flex flex-col gap-2 text-gray-400 text-sm">
+                  <li><a class="hover:text-primary transition-colors" href="#">Home</a></li>
+                  <li><a class="hover:text-primary transition-colors" href="#how-it-works">How It Works</a></li>
+                  <li><a class="hover:text-primary transition-colors" href="#features">Features</a></li>
+                  <li><a class="hover:text-primary transition-colors" href="#advocate">For Advocates</a></li>
+               </ul>
+            </div>
+            <div class="flex flex-col gap-4">
+               <h4 class="font-bold text-lg">Legal</h4>
+               <ul class="flex flex-col gap-2 text-gray-400 text-sm">
+                  <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+                  <li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+                  <li><a class="hover:text-primary transition-colors" href="#">Cookie Policy</a></li>
+                  <li><a class="hover:text-primary transition-colors" href="#">Disclaimer</a></li>
+               </ul>
+            </div>
+            <div class="flex flex-col gap-4">
+               <h4 class="font-bold text-lg">Contact Support</h4>
+               <div class="flex flex-col gap-3 text-gray-400 text-sm">
+                  <div class="flex items-center gap-2">
+                     <span class="material-symbols-outlined text-sm">mail</span>
+                     <span>vihalbikemart@gmail.com</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                     <span class="material-symbols-outlined text-sm">call</span>
+                     <span>+1 (800) 123-4567</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                     <span class="material-symbols-outlined text-sm">location_on</span>
+                     <span>Noida</span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="max-w-7xl mx-auto pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-500 text-sm">© 2024 Vishal Bike Mart. All rights reserved.</p>
+            <div class="flex items-center gap-2">
+               <span class="w-2 h-2 rounded-full bg-green-500"></span>
+               <span class="text-gray-500 text-xs font-medium">System Operational</span>
+            </div>
+         </div>
+      </footer>
+   </body>
+</html>

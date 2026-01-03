@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+   <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      <title>Admin Users Management - Challan System</title>
+      <link href="https://fonts.googleapis.com" rel="preconnect"/>
+      <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+      <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+      <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+      <script id="tailwind-config">
+         tailwind.config = {
+             darkMode: "class",
+             theme: {
+                 extend: {
+                     colors: {
+                         "primary": "#135bec",
+                         "primary-hover": "#0e4bca",
+                         "background-light": "#f6f6f8",
+                         "background-dark": "#101622",
+                         "card-light": "#ffffff",
+                         "card-dark": "#1a2230",
+                         "text-main": "#111318",
+                         "text-secondary": "#616f89",
+                     },
+                     fontFamily: {
+                         "display": ["Public Sans", "sans-serif"]
+                     },
+                     borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                 },
+             },
+         }
+      </script>
+      <style>
+         ::-webkit-scrollbar {
+         width: 6px;
+         height: 6px;
+         }
+         ::-webkit-scrollbar-track {
+         background: transparent;
+         }
+         ::-webkit-scrollbar-thumb {
+         background: #cbd5e1;
+         border-radius: 3px;
+         }
+         .dark ::-webkit-scrollbar-thumb {
+         background: #334155;
+         }
+      </style>
+   </head>
+   <body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-gray-100 transition-colors duration-200">
+      <div class="flex h-screen overflow-hidden">
+         <aside class="w-64 flex-shrink-0 bg-card-light dark:bg-card-dark border-r border-gray-200 dark:border-gray-800 flex flex-col transition-colors duration-200 z-20 hidden lg:flex">
+            <div class="h-16 flex items-center px-6 border-b border-gray-100 dark:border-gray-800">
+               <div class="flex flex-col">
+                  <h1 class="text-primary text-lg font-bold leading-none">Challan Admin</h1>
+                  <span class="text-text-secondary dark:text-gray-400 text-xs mt-1">Management System</span>
+               </div>
+            </div>
+            <nav class="flex-1 overflow-y-auto py-4 px-3 space-y-1">
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminDashboard.html">
+               <span class="material-symbols-outlined text-[20px] font-medium">dashboard</span>
+               <span class="text-sm font-semibold">Dashboard</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary group transition-all" href="users.html">
+               <span class="material-symbols-outlined text-[20px]">group</span>
+               <span class="text-sm font-medium">Users</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminVehicles.html">
+               <span class="material-symbols-outlined text-[20px]">directions_car</span>
+               <span class="text-sm font-medium">Vehicles</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminChallans.html">
+               <span class="material-symbols-outlined text-[20px]">receipt_long</span>
+               <span class="text-sm font-medium">Challans</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="advocates.html">
+               <span class="material-symbols-outlined text-[20px]">gavel</span>
+               <span class="text-sm font-medium">Advocates</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="settlements.html">
+               <span class="material-symbols-outlined text-[20px]">payments</span>
+               <span class="text-sm font-medium">Settlements</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminPayments.html">
+               <span class="material-symbols-outlined text-[20px]">history</span>
+               <span class="text-sm font-medium">Payment History</span>
+               </a>
+               <div class="pt-4 mt-4 border-t border-gray-100 dark:border-gray-800">
+                  <p class="px-3 text-xs font-semibold text-text-secondary dark:text-gray-500 uppercase tracking-wider mb-2">System</p>
+                  <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="auditLog.html">
+                  <span class="material-symbols-outlined text-[20px]">history_edu</span>
+                  <span class="text-sm font-medium">Admin Audit Log</span>
+                  </a>
+                  <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminProfile.html">
+                  <span class="material-symbols-outlined text-[20px]">person</span>
+                  <span class="text-sm font-medium">Profile</span>
+                  </a>
+                  <!-- <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="setting.html">
+                     <span class="material-symbols-outlined text-[20px]">settings</span>
+                     <span class="text-sm font-medium">Settings</span>
+                     </a> -->
+                  <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminSupport.html">
+                  <span class="material-symbols-outlined text-[20px]">help</span>
+                  <span class="text-sm font-medium">Help &amp; Support</span>
+                  </a>
+               </div>
+            </nav>
+            <div class="p-4 border-t border-gray-100 dark:border-gray-800">
+               <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">A</div>
+                  <div class="flex flex-col">
+                     <span class="text-sm font-medium text-text-main dark:text-gray-200">Admin User</span>
+                     <span class="text-xs text-text-secondary dark:text-gray-400">admin@system.com</span>
+                  </div>
+               </div>
+            </div>
+         </aside>
+         <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+            <header class="h-16 flex items-center justify-between bg-card-light dark:bg-card-dark border-b border-gray-200 dark:border-gray-800 px-6 lg:px-8 z-10">
+               <div class="flex items-center gap-4 lg:hidden">
+                  <button class="text-text-secondary dark:text-gray-400 hover:text-primary">
+                  <span class="material-symbols-outlined">menu</span>
+                  </button>
+                  <span class="font-bold text-lg text-text-main dark:text-white">Admin</span>
+               </div>
+               <div class="hidden lg:flex flex-1 max-w-lg">
+                  <div class="relative w-full">
+                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <span class="material-symbols-outlined text-text-secondary dark:text-gray-500 text-[20px]">search</span>
+                     </div>
+                     <input class="block w-full pl-10 pr-3 py-2 border-none rounded-lg bg-background-light dark:bg-gray-800 text-sm placeholder-text-secondary dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 text-text-main dark:text-white" placeholder="Search Users..." type="text"/>
+                  </div>
+               </div>
+               <div class="flex items-center gap-4 ml-4">
+                  <button class="relative p-2 rounded-full text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                  <span class="material-symbols-outlined text-[22px]">notifications</span>
+                  <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-card-dark"></span>
+                  </button>
+                  <div class="w-9 h-9 rounded-full bg-cover bg-center border border-gray-200 dark:border-gray-700 cursor-pointer" data-alt="User profile picture showing a smiling person" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBUc2B9WegD0MYu041RJdchtI7XLk-6zCH4zGvJdQg-oroY7cipYX62vu_2Xh-D737vW7C5vbwuKFkN511WEKiYc36GiESqQuGDA3vbuKqIeehfiGwjLegRBxR6bRDxBU5jPcQAWpmsFwXY-N6tMl7mc-Hpccjblc15geDK6Y-SLBxkCbgf_EvU8-kgTG1EzBp17Qq21YmUXc8NZ_K9WvqljGTYybgH0BzjNfk0-oN3ze8BpCL6NA6TU4nqfFPhkBe7SnbZmGi2zWM');"></div>
+               </div>
+            </header>
+            <main class="flex-1 overflow-y-auto p-4 lg:p-8 scroll-smooth">
+               <div class="max-w-7xl mx-auto flex flex-col gap-6">
+                  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                     <div>
+                        <h2 class="text-2xl font-bold text-text-main dark:text-white tracking-tight">Users Management</h2>
+                        <p class="text-text-secondary dark:text-gray-400 mt-1">Manage user access, view profiles, and monitor account statuses.</p>
+                     </div>
+                     <div class="flex items-center gap-3">
+                        <button class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm shadow-primary/30 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">person_add</span>
+                        Add New User
+                        </button>
+                     </div>
+                  </div>
+                  <div class="bg-card-light dark:bg-card-dark p-4 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
+                     <div class="flex flex-col md:flex-row gap-4 justify-between">
+                        <div class="relative flex-1 max-w-md">
+                           <span class="material-symbols-outlined absolute left-3 top-2.5 text-text-secondary dark:text-gray-500 text-[20px]">search</span>
+                           <input class="w-full pl-10 pr-4 py-2 bg-background-light dark:bg-gray-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/50 text-text-main dark:text-white placeholder-text-secondary dark:placeholder-gray-500" placeholder="Search by name, email or ID..." type="text"/>
+                        </div>
+                        <div class="flex items-center gap-3 overflow-x-auto pb-2 md:pb-0">
+                           <select class="bg-background-light dark:bg-gray-800 border-none text-sm rounded-lg px-3 py-2 text-text-main dark:text-white focus:ring-2 focus:ring-primary/50 cursor-pointer min-w-[140px]">
+                              <option value="">All Statuses</option>
+                              <option value="active">Active</option>
+                              <option value="inactive">Inactive</option>
+                              <option value="suspended">Suspended</option>
+                           </select>
+                           <select class="bg-background-light dark:bg-gray-800 border-none text-sm rounded-lg px-3 py-2 text-text-main dark:text-white focus:ring-2 focus:ring-primary/50 cursor-pointer min-w-[140px]">
+                              <option value="">Registration Date</option>
+                              <option value="today">Today</option>
+                              <option value="week">This Week</option>
+                              <option value="month">This Month</option>
+                           </select>
+                           <button class="px-4 py-2 bg-background-light dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-main dark:text-white rounded-lg text-sm font-medium transition-colors flex items-center gap-2 border border-transparent whitespace-nowrap">
+                           <span class="material-symbols-outlined text-[18px]">filter_list</span>
+                           More Filters
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="bg-card-light dark:bg-card-dark rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
+                     <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse min-w-[800px]">
+                           <thead>
+                              <tr class="bg-gray-50/50 dark:bg-gray-800/30 text-xs text-text-secondary dark:text-gray-400 border-b border-gray-100 dark:border-gray-800">
+                                 <th class="px-6 py-4 font-semibold uppercase tracking-wider">User Details</th>
+                                 <th class="px-6 py-4 font-semibold uppercase tracking-wider">Contact Info</th>
+                                 <th class="px-6 py-4 font-semibold uppercase tracking-wider">Registration Date</th>
+                                 <th class="px-6 py-4 font-semibold uppercase tracking-wider">Status</th>
+                                 <th class="px-6 py-4 font-semibold uppercase tracking-wider text-right">Actions</th>
+                              </tr>
+                           </thead>
+                           <tbody class="divide-y divide-gray-100 dark:divide-gray-800 text-sm">
+                              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                       <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm">RK</div>
+                                       <div>
+                                          <p class="font-medium text-text-main dark:text-white">Rajesh Kumar</p>
+                                          <p class="text-xs text-text-secondary dark:text-gray-500 font-mono">USR-2023-8821</p>
+                                       </div>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex flex-col">
+                                       <span class="text-text-main dark:text-gray-300">rajesh.k@gmail.com</span>
+                                       <span class="text-xs text-text-secondary dark:text-gray-500">+91 98765 43210</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">
+                                    Nov 12, 2023
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                    Active
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4 text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                       <button class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-text-secondary dark:text-gray-400 transition-colors" title="View Profile">
+                                       <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                       </button>
+                                       <button class="p-2 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg text-red-500 transition-colors" title="Disable Account">
+                                       <span class="material-symbols-outlined text-[20px]">block</span>
+                                       </button>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                       <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-sm">SG</div>
+                                       <div>
+                                          <p class="font-medium text-text-main dark:text-white">Sneha Gupta</p>
+                                          <p class="text-xs text-text-secondary dark:text-gray-500 font-mono">USR-2023-8822</p>
+                                       </div>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex flex-col">
+                                       <span class="text-text-main dark:text-gray-300">sneha.g@outlook.com</span>
+                                       <span class="text-xs text-text-secondary dark:text-gray-500">+91 88765 12345</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">
+                                    Nov 10, 2023
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                    Active
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4 text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                       <button class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-text-secondary dark:text-gray-400 transition-colors" title="View Profile">
+                                       <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                       </button>
+                                       <button class="p-2 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg text-red-500 transition-colors" title="Disable Account">
+                                       <span class="material-symbols-outlined text-[20px]">block</span>
+                                       </button>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                       <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-bold text-sm">AV</div>
+                                       <div>
+                                          <p class="font-medium text-text-main dark:text-white">Amit Verma</p>
+                                          <p class="text-xs text-text-secondary dark:text-gray-500 font-mono">USR-2023-8825</p>
+                                       </div>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex flex-col">
+                                       <span class="text-text-main dark:text-gray-300">amit.v@yahoo.com</span>
+                                       <span class="text-xs text-text-secondary dark:text-gray-500">+91 76543 21098</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">
+                                    Oct 28, 2023
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
+                                    Inactive
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4 text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                       <button class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-text-secondary dark:text-gray-400 transition-colors" title="View Profile">
+                                       <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                       </button>
+                                       <button class="p-2 hover:bg-green-50 dark:hover:bg-green-900/20 rounded-lg text-green-600 transition-colors" title="Enable Account">
+                                       <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                                       </button>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                       <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center font-bold text-sm">PR</div>
+                                       <div>
+                                          <p class="font-medium text-text-main dark:text-white">Priya Reddy</p>
+                                          <p class="text-xs text-text-secondary dark:text-gray-500 font-mono">USR-2023-8830</p>
+                                       </div>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex flex-col">
+                                       <span class="text-text-main dark:text-gray-300">priya.reddy@gmail.com</span>
+                                       <span class="text-xs text-text-secondary dark:text-gray-500">+91 99887 76655</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">
+                                    Oct 15, 2023
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400">
+                                    Suspended
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4 text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                       <button class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-text-secondary dark:text-gray-400 transition-colors" title="View Profile">
+                                       <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                       </button>
+                                       <button class="p-2 hover:bg-green-50 dark:hover:bg-green-900/20 rounded-lg text-green-600 transition-colors" title="Enable Account">
+                                       <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                                       </button>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                       <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-sm">MK</div>
+                                       <div>
+                                          <p class="font-medium text-text-main dark:text-white">Mohan Krishna</p>
+                                          <p class="text-xs text-text-secondary dark:text-gray-500 font-mono">USR-2023-8842</p>
+                                       </div>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex flex-col">
+                                       <span class="text-text-main dark:text-gray-300">mohan.k@business.in</span>
+                                       <span class="text-xs text-text-secondary dark:text-gray-500">+91 70000 11111</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4 text-text-secondary dark:text-gray-400">
+                                    Oct 05, 2023
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                    Active
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4 text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                       <button class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-text-secondary dark:text-gray-400 transition-colors" title="View Profile">
+                                       <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                       </button>
+                                       <button class="p-2 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg text-red-500 transition-colors" title="Disable Account">
+                                       <span class="material-symbols-outlined text-[20px]">block</span>
+                                       </button>
+                                    </div>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <div class="px-6 py-4 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
+                        <span class="text-sm text-text-secondary dark:text-gray-400">Showing <span class="font-medium text-text-main dark:text-white">1</span> to <span class="font-medium text-text-main dark:text-white">5</span> of <span class="font-medium text-text-main dark:text-white">450</span> users</span>
+                        <div class="flex gap-2">
+                           <button class="px-3 py-1.5 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-text-secondary dark:text-gray-400 disabled:opacity-50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" disabled="">Previous</button>
+                           <div class="flex items-center gap-1">
+                              <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-white text-sm font-medium">1</button>
+                              <button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-text-secondary dark:text-gray-400 text-sm font-medium transition-colors">2</button>
+                              <button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-text-secondary dark:text-gray-400 text-sm font-medium transition-colors">3</button>
+                              <span class="text-text-secondary dark:text-gray-500 px-1">...</span>
+                              <button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-text-secondary dark:text-gray-400 text-sm font-medium transition-colors">90</button>
+                           </div>
+                           <button class="px-3 py-1.5 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-text-main dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">Next</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </main>
+         </div>
+      </div>
+   </body>
+</html>

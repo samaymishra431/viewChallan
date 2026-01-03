@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+   <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      <title>Admin Advocates Management - Challan System</title>
+      <link href="https://fonts.googleapis.com" rel="preconnect"/>
+      <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+      <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+      <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+      <script id="tailwind-config">
+         tailwind.config = {
+             darkMode: "class",
+             theme: {
+                 extend: {
+                     colors: {
+                         "primary": "#135bec",
+                         "primary-hover": "#0e4bca",
+                         "background-light": "#f6f6f8",
+                         "background-dark": "#101622",
+                         "card-light": "#ffffff",
+                         "card-dark": "#1a2230",
+                         "text-main": "#111318",
+                         "text-secondary": "#616f89",
+                     },
+                     fontFamily: {
+                         "display": ["Public Sans", "sans-serif"]
+                     },
+                     borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                 },
+             },
+         }
+      </script>
+      <style>
+         ::-webkit-scrollbar {
+         width: 6px;
+         height: 6px;
+         }
+         ::-webkit-scrollbar-track {
+         background: transparent;
+         }
+         ::-webkit-scrollbar-thumb {
+         background: #cbd5e1;
+         border-radius: 3px;
+         }
+         .dark ::-webkit-scrollbar-thumb {
+         background: #334155;
+         }
+      </style>
+   </head>
+   <body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-gray-100 transition-colors duration-200">
+      <div class="flex h-screen overflow-hidden">
+         <aside class="w-64 flex-shrink-0 bg-card-light dark:bg-card-dark border-r border-gray-200 dark:border-gray-800 flex flex-col transition-colors duration-200 z-20 hidden lg:flex">
+            <div class="h-16 flex items-center px-6 border-b border-gray-100 dark:border-gray-800">
+               <div class="flex flex-col">
+                  <h1 class="text-primary text-lg font-bold leading-none">Challan Admin</h1>
+                  <span class="text-text-secondary dark:text-gray-400 text-xs mt-1">Management System</span>
+               </div>
+            </div>
+            <nav class="flex-1 overflow-y-auto py-4 px-3 space-y-1">
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminDashboard.html">
+               <span class="material-symbols-outlined text-[20px] font-medium">dashboard</span>
+               <span class="text-sm font-semibold">Dashboard</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="users.html">
+               <span class="material-symbols-outlined text-[20px]">group</span>
+               <span class="text-sm font-medium">Users</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminVehicles.html">
+               <span class="material-symbols-outlined text-[20px]">directions_car</span>
+               <span class="text-sm font-medium">Vehicles</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminChallans.html">
+               <span class="material-symbols-outlined text-[20px]">receipt_long</span>
+               <span class="text-sm font-medium">Challans</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary group transition-all" href="advocates.html">
+               <span class="material-symbols-outlined text-[20px]">gavel</span>
+               <span class="text-sm font-medium">Advocates</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="settlements.html">
+               <span class="material-symbols-outlined text-[20px]">payments</span>
+               <span class="text-sm font-medium">Settlements</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminPayments.html">
+               <span class="material-symbols-outlined text-[20px]">history</span>
+               <span class="text-sm font-medium">Payment History</span>
+               </a>
+               <div class="pt-4 mt-4 border-t border-gray-100 dark:border-gray-800">
+                  <p class="px-3 text-xs font-semibold text-text-secondary dark:text-gray-500 uppercase tracking-wider mb-2">System</p>
+                  <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="auditLog.html">
+                  <span class="material-symbols-outlined text-[20px]">history_edu</span>
+                  <span class="text-sm font-medium">Admin Audit Log</span>
+                  </a>
+                  <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminProfile.html">
+                  <span class="material-symbols-outlined text-[20px]">person</span>
+                  <span class="text-sm font-medium">Profile</span>
+                  </a>
+                  <!-- <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="setting.html">
+                     <span class="material-symbols-outlined text-[20px]">settings</span>
+                     <span class="text-sm font-medium">Settings</span>
+                     </a> -->
+                  <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminSupport.html">
+                  <span class="material-symbols-outlined text-[20px]">help</span>
+                  <span class="text-sm font-medium">Help &amp; Support</span>
+                  </a>
+               </div>
+            </nav>
+            <div class="p-4 border-t border-gray-100 dark:border-gray-800">
+               <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">A</div>
+                  <div class="flex flex-col">
+                     <span class="text-sm font-medium text-text-main dark:text-gray-200">Admin User</span>
+                     <span class="text-xs text-text-secondary dark:text-gray-400">admin@system.com</span>
+                  </div>
+               </div>
+            </div>
+         </aside>
+         <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+            <header class="h-16 flex items-center justify-between bg-card-light dark:bg-card-dark border-b border-gray-200 dark:border-gray-800 px-6 lg:px-8 z-10">
+               <div class="flex items-center gap-4 lg:hidden">
+                  <button class="text-text-secondary dark:text-gray-400 hover:text-primary">
+                  <span class="material-symbols-outlined">menu</span>
+                  </button>
+                  <span class="font-bold text-lg text-text-main dark:text-white">Admin</span>
+               </div>
+               <div class="hidden lg:flex flex-1 max-w-lg">
+                  <div class="relative w-full">
+                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <span class="material-symbols-outlined text-text-secondary dark:text-gray-500 text-[20px]">search</span>
+                     </div>
+                     <input class="block w-full pl-10 pr-3 py-2 border-none rounded-lg bg-background-light dark:bg-gray-800 text-sm placeholder-text-secondary dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 text-text-main dark:text-white" placeholder="Search Advocates by Name, ID..." type="text"/>
+                  </div>
+               </div>
+               <div class="flex items-center gap-4 ml-4">
+                  <button class="relative p-2 rounded-full text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                  <span class="material-symbols-outlined text-[22px]">notifications</span>
+                  <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-card-dark"></span>
+                  </button>
+                  <div class="w-9 h-9 rounded-full bg-cover bg-center border border-gray-200 dark:border-gray-700 cursor-pointer" data-alt="User profile picture showing a smiling person" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBUc2B9WegD0MYu041RJdchtI7XLk-6zCH4zGvJdQg-oroY7cipYX62vu_2Xh-D737vW7C5vbwuKFkN511WEKiYc36GiESqQuGDA3vbuKqIeehfiGwjLegRBxR6bRDxBU5jPcQAWpmsFwXY-N6tMl7mc-Hpccjblc15geDK6Y-SLBxkCbgf_EvU8-kgTG1EzBp17Qq21YmUXc8NZ_K9WvqljGTYybgH0BzjNfk0-oN3ze8BpCL6NA6TU4nqfFPhkBe7SnbZmGi2zWM');"></div>
+               </div>
+            </header>
+            <main class="flex-1 overflow-y-auto p-4 lg:p-8 scroll-smooth">
+               <div class="max-w-7xl mx-auto flex flex-col gap-6">
+                  <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                     <div>
+                        <h2 class="text-2xl font-bold text-text-main dark:text-white tracking-tight">Advocates Management</h2>
+                        <p class="text-text-secondary dark:text-gray-400 mt-1">Manage registered advocates, assign cases, and monitor performance.</p>
+                     </div>
+                     <div class="flex items-center gap-3">
+                        <button class="bg-card-light dark:bg-card-dark hover:bg-gray-50 dark:hover:bg-gray-800 text-text-secondary dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-gray-200 dark:border-gray-700 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">filter_list</span>
+                        Filter
+                        </button>
+                        <button class="bg-card-light dark:bg-card-dark hover:bg-gray-50 dark:hover:bg-gray-800 text-text-secondary dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-gray-200 dark:border-gray-700 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">download</span>
+                        Export List
+                        </button>
+                        <button class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm shadow-primary/30 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">person_add</span>
+                        Add New Advocate
+                        </button>
+                     </div>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                     <div class="bg-card-light dark:bg-card-dark p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col justify-between h-28">
+                        <div class="flex justify-between items-start">
+                           <div>
+                              <p class="text-text-secondary dark:text-gray-400 text-sm font-medium">Total Advocates</p>
+                              <h3 class="text-2xl font-bold text-text-main dark:text-white mt-1">128</h3>
+                           </div>
+                           <div class="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-primary">
+                              <span class="material-symbols-outlined text-[20px]">groups</span>
+                           </div>
+                        </div>
+                        <div class="text-text-secondary dark:text-gray-500 text-xs font-medium">
+                           <span>Across all regions</span>
+                        </div>
+                     </div>
+                     <div class="bg-card-light dark:bg-card-dark p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col justify-between h-28">
+                        <div class="flex justify-between items-start">
+                           <div>
+                              <p class="text-text-secondary dark:text-gray-400 text-sm font-medium">Active Today</p>
+                              <h3 class="text-2xl font-bold text-text-main dark:text-white mt-1">45</h3>
+                           </div>
+                           <div class="p-2 bg-green-50 dark:bg-green-900/20 rounded-lg text-green-600 dark:text-green-400">
+                              <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                           </div>
+                        </div>
+                        <div class="text-green-600 text-xs font-medium flex items-center gap-1">
+                           <span class="material-symbols-outlined text-[14px]">trending_up</span>
+                           <span>High availability</span>
+                        </div>
+                     </div>
+                     <div class="bg-card-light dark:bg-card-dark p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col justify-between h-28">
+                        <div class="flex justify-between items-start">
+                           <div>
+                              <p class="text-text-secondary dark:text-gray-400 text-sm font-medium">Avg Settlement Rate</p>
+                              <h3 class="text-2xl font-bold text-text-main dark:text-white mt-1">78%</h3>
+                           </div>
+                           <div class="p-2 bg-purple-50 dark:bg-purple-900/20 rounded-lg text-purple-600 dark:text-purple-400">
+                              <span class="material-symbols-outlined text-[20px]">percent</span>
+                           </div>
+                        </div>
+                        <div class="text-text-secondary dark:text-gray-500 text-xs font-medium">
+                           <span>Based on last 30 days</span>
+                        </div>
+                     </div>
+                     <div class="bg-card-light dark:bg-card-dark p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col justify-between h-28">
+                        <div class="flex justify-between items-start">
+                           <div>
+                              <p class="text-text-secondary dark:text-gray-400 text-sm font-medium">Pending Assignments</p>
+                              <h3 class="text-2xl font-bold text-text-main dark:text-white mt-1">12</h3>
+                           </div>
+                           <div class="p-2 bg-orange-50 dark:bg-orange-900/20 rounded-lg text-orange-600 dark:text-orange-400">
+                              <span class="material-symbols-outlined text-[20px]">assignment_late</span>
+                           </div>
+                        </div>
+                        <div class="text-orange-600 text-xs font-medium">
+                           <span>Requires attention</span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="bg-card-light dark:bg-card-dark rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col">
+                     <div class="p-5 border-b border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div class="relative max-w-sm w-full">
+                           <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                              <span class="material-symbols-outlined text-text-secondary dark:text-gray-500 text-[18px]">search</span>
+                           </div>
+                           <input class="block w-full pl-9 pr-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800/50 text-sm placeholder-text-secondary dark:placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary text-text-main dark:text-white transition-all" placeholder="Search by Name, Email, or ID..." type="text"/>
+                        </div>
+                        <div class="flex items-center gap-2">
+                           <select class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm rounded-lg px-3 py-2 text-text-secondary dark:text-gray-300 focus:ring-primary focus:border-primary cursor-pointer">
+                              <option>Status: All</option>
+                              <option>Active</option>
+                              <option>On Leave</option>
+                              <option>Inactive</option>
+                           </select>
+                           <select class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm rounded-lg px-3 py-2 text-text-secondary dark:text-gray-300 focus:ring-primary focus:border-primary cursor-pointer">
+                              <option>Performance: All</option>
+                              <option>Top Rated (&gt;90%)</option>
+                              <option>Average (70-90%)</option>
+                              <option>Needs Improvement (&lt;70%)</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                           <thead>
+                              <tr class="bg-gray-50/50 dark:bg-gray-800/30 text-xs text-text-secondary dark:text-gray-400 border-b border-gray-200 dark:border-gray-800">
+                                 <th class="px-6 py-4 font-semibold uppercase tracking-wider">Advocate Details</th>
+                                 <th class="px-6 py-4 font-semibold uppercase tracking-wider">Assigned</th>
+                                 <th class="px-6 py-4 font-semibold uppercase tracking-wider">Settled</th>
+                                 <th class="px-6 py-4 font-semibold uppercase tracking-wider">Performance</th>
+                                 <th class="px-6 py-4 font-semibold uppercase tracking-wider">Status</th>
+                                 <th class="px-6 py-4 font-semibold uppercase tracking-wider text-right">Actions</th>
+                              </tr>
+                           </thead>
+                           <tbody class="text-sm text-text-main dark:text-gray-300 divide-y divide-gray-100 dark:divide-gray-800">
+                              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                       <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-sm">RK</div>
+                                       <div>
+                                          <div class="font-semibold text-text-main dark:text-white">Rajesh Kumar</div>
+                                          <div class="text-xs text-text-secondary dark:text-gray-400">ID: ADV-2023-001</div>
+                                          <div class="text-xs text-text-secondary dark:text-gray-500 mt-0.5">rajesh.k@lawfirm.com | +91 98765 43210</div>
+                                       </div>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="font-medium">145</span>
+                                    <span class="text-xs text-text-secondary dark:text-gray-500 block">Total Cases</span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="font-medium text-green-600 dark:text-green-400">142</span>
+                                    <span class="text-xs text-text-secondary dark:text-gray-500 block">Successfully Closed</span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                       <div class="flex-1 w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+                                          <div class="bg-green-500 h-1.5 rounded-full" style="width: 98%"></div>
+                                       </div>
+                                       <span class="text-xs font-bold text-green-600">98%</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                    Active
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4 text-right">
+                                    <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                       <button class="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="View Profile">
+                                       <span class="material-symbols-outlined text-[18px]">visibility</span>
+                                       </button>
+                                       <button class="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="Assign Challans">
+                                       <span class="material-symbols-outlined text-[18px]">assignment_add</span>
+                                       </button>
+                                       <button class="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-text-secondary dark:text-gray-400 hover:text-red-500 transition-colors" title="Settings">
+                                       <span class="material-symbols-outlined text-[18px]">settings</span>
+                                       </button>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                       <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center font-bold text-sm">SG</div>
+                                       <div>
+                                          <div class="font-semibold text-text-main dark:text-white">Sneha Gupta</div>
+                                          <div class="text-xs text-text-secondary dark:text-gray-400">ID: ADV-2023-045</div>
+                                          <div class="text-xs text-text-secondary dark:text-gray-500 mt-0.5">sneha.g@legal.in | +91 88776 65544</div>
+                                       </div>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="font-medium">89</span>
+                                    <span class="text-xs text-text-secondary dark:text-gray-500 block">Total Cases</span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="font-medium text-green-600 dark:text-green-400">82</span>
+                                    <span class="text-xs text-text-secondary dark:text-gray-500 block">Successfully Closed</span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                       <div class="flex-1 w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+                                          <div class="bg-blue-500 h-1.5 rounded-full" style="width: 92%"></div>
+                                       </div>
+                                       <span class="text-xs font-bold text-blue-600">92%</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                    Active
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4 text-right">
+                                    <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                       <button class="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="View Profile">
+                                       <span class="material-symbols-outlined text-[18px]">visibility</span>
+                                       </button>
+                                       <button class="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="Assign Challans">
+                                       <span class="material-symbols-outlined text-[18px]">assignment_add</span>
+                                       </button>
+                                       <button class="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-text-secondary dark:text-gray-400 hover:text-red-500 transition-colors" title="Settings">
+                                       <span class="material-symbols-outlined text-[18px]">settings</span>
+                                       </button>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                       <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-bold text-sm">AV</div>
+                                       <div>
+                                          <div class="font-semibold text-text-main dark:text-white">Amit Verma</div>
+                                          <div class="text-xs text-text-secondary dark:text-gray-400">ID: ADV-2023-112</div>
+                                          <div class="text-xs text-text-secondary dark:text-gray-500 mt-0.5">amit.v@lawyer.com | +91 77665 54433</div>
+                                       </div>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="font-medium">210</span>
+                                    <span class="text-xs text-text-secondary dark:text-gray-500 block">Total Cases</span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="font-medium text-green-600 dark:text-green-400">185</span>
+                                    <span class="text-xs text-text-secondary dark:text-gray-500 block">Successfully Closed</span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                       <div class="flex-1 w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+                                          <div class="bg-yellow-500 h-1.5 rounded-full" style="width: 88%"></div>
+                                       </div>
+                                       <span class="text-xs font-bold text-yellow-600">88%</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400">
+                                    On Leave
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4 text-right">
+                                    <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                       <button class="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="View Profile">
+                                       <span class="material-symbols-outlined text-[18px]">visibility</span>
+                                       </button>
+                                       <button class="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="Assign Challans">
+                                       <span class="material-symbols-outlined text-[18px]">assignment_add</span>
+                                       </button>
+                                       <button class="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-text-secondary dark:text-gray-400 hover:text-red-500 transition-colors" title="Settings">
+                                       <span class="material-symbols-outlined text-[18px]">settings</span>
+                                       </button>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                       <div class="w-10 h-10 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center font-bold text-sm">PM</div>
+                                       <div>
+                                          <div class="font-semibold text-text-main dark:text-white">Priya Mishra</div>
+                                          <div class="text-xs text-text-secondary dark:text-gray-400">ID: ADV-2023-156</div>
+                                          <div class="text-xs text-text-secondary dark:text-gray-500 mt-0.5">priya.m@court.com | +91 99887 76655</div>
+                                       </div>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="font-medium">45</span>
+                                    <span class="text-xs text-text-secondary dark:text-gray-500 block">Total Cases</span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="font-medium text-green-600 dark:text-green-400">18</span>
+                                    <span class="text-xs text-text-secondary dark:text-gray-500 block">Successfully Closed</span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                       <div class="flex-1 w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+                                          <div class="bg-red-500 h-1.5 rounded-full" style="width: 40%"></div>
+                                       </div>
+                                       <span class="text-xs font-bold text-red-600">40%</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400">
+                                    Inactive
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4 text-right">
+                                    <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                       <button class="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="View Profile">
+                                       <span class="material-symbols-outlined text-[18px]">visibility</span>
+                                       </button>
+                                       <button class="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="Assign Challans">
+                                       <span class="material-symbols-outlined text-[18px]">assignment_add</span>
+                                       </button>
+                                       <button class="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-text-secondary dark:text-gray-400 hover:text-red-500 transition-colors" title="Settings">
+                                       <span class="material-symbols-outlined text-[18px]">settings</span>
+                                       </button>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                       <div class="w-10 h-10 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center font-bold text-sm">KS</div>
+                                       <div>
+                                          <div class="font-semibold text-text-main dark:text-white">Karan Singh</div>
+                                          <div class="text-xs text-text-secondary dark:text-gray-400">ID: ADV-2023-189</div>
+                                          <div class="text-xs text-text-secondary dark:text-gray-500 mt-0.5">karan.s@legalforce.com | +91 88990 01122</div>
+                                       </div>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="font-medium">320</span>
+                                    <span class="text-xs text-text-secondary dark:text-gray-500 block">Total Cases</span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="font-medium text-green-600 dark:text-green-400">305</span>
+                                    <span class="text-xs text-text-secondary dark:text-gray-500 block">Successfully Closed</span>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                       <div class="flex-1 w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+                                          <div class="bg-green-500 h-1.5 rounded-full" style="width: 95%"></div>
+                                       </div>
+                                       <span class="text-xs font-bold text-green-600">95%</span>
+                                    </div>
+                                 </td>
+                                 <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                    Active
+                                    </span>
+                                 </td>
+                                 <td class="px-6 py-4 text-right">
+                                    <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                       <button class="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="View Profile">
+                                       <span class="material-symbols-outlined text-[18px]">visibility</span>
+                                       </button>
+                                       <button class="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-text-secondary dark:text-gray-400 hover:text-primary transition-colors" title="Assign Challans">
+                                       <span class="material-symbols-outlined text-[18px]">assignment_add</span>
+                                       </button>
+                                       <button class="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-text-secondary dark:text-gray-400 hover:text-red-500 transition-colors" title="Settings">
+                                       <span class="material-symbols-outlined text-[18px]">settings</span>
+                                       </button>
+                                    </div>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <div class="px-6 py-4 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between">
+                        <span class="text-sm text-text-secondary dark:text-gray-400">
+                        Showing <span class="font-medium text-text-main dark:text-white">1</span> to <span class="font-medium text-text-main dark:text-white">5</span> of <span class="font-medium text-text-main dark:text-white">128</span> entries
+                        </span>
+                        <div class="flex items-center gap-2">
+                           <button class="p-2 rounded-lg border border-gray-200 dark:border-gray-700 text-text-secondary dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-50 transition-colors" disabled="">
+                           <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+                           </button>
+                           <button class="p-2 rounded-lg border border-gray-200 dark:border-gray-700 text-text-secondary dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                           <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </main>
+         </div>
+      </div>
+   </body>
+</html>

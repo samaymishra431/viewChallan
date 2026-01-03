@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+   <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      <title>Challan Management System - My Vehicles</title>
+      <link href="https://fonts.googleapis.com" rel="preconnect"/>
+      <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+      <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+      <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+      <script id="tailwind-config">
+         tailwind.config = {
+             darkMode: "class",
+             theme: {
+                 extend: {
+                     colors: {
+                         "primary": "#135bec",
+                         "background-light": "#f6f6f8",
+                         "background-dark": "#101622",
+                         "surface-light": "#ffffff",
+                         "surface-dark": "#18212f",
+                         "border-light": "#dbdfe6",
+                         "border-dark": "#2d3748",
+                     },
+                     fontFamily: {
+                         "display": ["Public Sans", "sans-serif"]
+                     },
+                     borderRadius: {
+                         "DEFAULT": "0.25rem", 
+                         "lg": "0.5rem", 
+                         "xl": "0.75rem", 
+                         "full": "9999px"
+                     },
+                 },
+             },
+         }
+      </script>
+      <style>
+         .no-scrollbar::-webkit-scrollbar {
+         display: none;
+         }
+         .no-scrollbar {
+         -ms-overflow-style: none;
+         scrollbar-width: none;
+         }
+      </style>
+   </head>
+   <body class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white font-display transition-colors duration-200">
+      <div class="flex h-screen w-full overflow-hidden">
+         <aside class="flex w-64 flex-col border-r border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark transition-colors duration-200 z-20">
+            <div class="flex flex-col h-full p-4 justify-between">
+               <div class="flex flex-col gap-4">
+                 <nav class="flex-1 overflow-y-auto py-4 px-3 space-y-1">
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminDashboard.html">
+               <span class="material-symbols-outlined text-[20px] font-medium">dashboard</span>
+               <span class="text-sm font-semibold">Dashboard</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="users.html">
+               <span class="material-symbols-outlined text-[20px]">group</span>
+               <span class="text-sm font-medium">Users</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary group transition-all" href="adminVehicles.html">
+               <span class="material-symbols-outlined text-[20px]">directions_car</span>
+               <span class="text-sm font-medium">Vehicles</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminChallans.html">
+               <span class="material-symbols-outlined text-[20px]">receipt_long</span>
+               <span class="text-sm font-medium">Challans</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="advocates.html">
+               <span class="material-symbols-outlined text-[20px]">gavel</span>
+               <span class="text-sm font-medium">Advocates</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="settlements.html">
+               <span class="material-symbols-outlined text-[20px]">payments</span>
+               <span class="text-sm font-medium">Settlements</span>
+               </a>
+               <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminPayments.html">
+               <span class="material-symbols-outlined text-[20px]">history</span>
+               <span class="text-sm font-medium">Payment History</span>
+               </a>
+               <div class="pt-4 mt-4 border-t border-gray-100 dark:border-gray-800">
+                  <p class="px-3 text-xs font-semibold text-text-secondary dark:text-gray-500 uppercase tracking-wider mb-2">System</p>
+                  <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="auditLog.html">
+                  <span class="material-symbols-outlined text-[20px]">history_edu</span>
+                  <span class="text-sm font-medium">Admin Audit Log</span>
+                  </a>
+                  <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminProfile.html">
+                  <span class="material-symbols-outlined text-[20px]">person</span>
+                  <span class="text-sm font-medium">Profile</span>
+                  </a>
+                  <!-- <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="setting.html">
+                     <span class="material-symbols-outlined text-[20px]">settings</span>
+                     <span class="text-sm font-medium">Settings</span>
+                     </a> -->
+                  <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-text-main dark:hover:text-gray-200 transition-all" href="adminSupport.html">
+                  <span class="material-symbols-outlined text-[20px]">help</span>
+                  <span class="text-sm font-medium">Help &amp; Support</span>
+                  </a>
+               </div>
+            </nav>
+               </div>
+               <div class="flex flex-col gap-4">
+                  <div class="flex gap-3 items-center px-3 pt-4 border-t border-border-light dark:border-border-dark">
+                     <div class="bg-center bg-no-repeat bg-cover rounded-full size-10 shadow-sm flex-shrink-0" data-alt="Profile picture of Rajesh" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDzI1Lgs_YAmCo_T6y1ZKQpvqfAfJrfenSM8t_FBshtHdJcgK6gkni2y-e14wAewS13cJ4dZDJbHirrJAD9aIaiDUosd1gffqST5BTAHgI7BXnG8Zuzg8QPBjAvq9sDrixUDAJ5E1vVvI7a4SM-IgwB8PumYUaN4Ghsv5jE425MhmXM-xHk8PS2u6J7ScmXJMTv-xUIXViUbt9SApv9vWcS5a45I5GpL9zA9wK7rtIaRw25AvnN67XpSueLjtaWkY_hgbquX8G04BA");'></div>
+                     <div class="flex flex-col overflow-hidden">
+                        <h1 class="text-sm font-bold leading-normal dark:text-white truncate">Challan System</h1>
+                        <p class="text-[#616f89] dark:text-gray-400 text-[10px] font-medium uppercase tracking-wide truncate">User Panel</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </aside>
+         <main class="flex-1 flex flex-col h-screen overflow-hidden bg-background-light dark:bg-background-dark">
+            <header class="flex-none h-16 w-full bg-surface-light dark:bg-surface-dark border-b border-border-light dark:border-border-dark px-6 flex items-center justify-between z-10 shadow-sm relative">
+               <div class="font-black text-xl tracking-tight text-[#111318] dark:text-white uppercase">
+                  vishal bike mart
+               </div>
+               <div class="flex items-center gap-4">
+                  <button class="flex items-center justify-center p-2 rounded-full text-[#616f89] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary transition-all">
+                  <span class="material-symbols-outlined">notifications</span>
+                  </button>
+                  <button class="flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark hover:border-primary/50 transition-all">
+                     <div class="size-7 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined text-sm">person</span>
+                     </div>
+                     <span class="text-sm font-semibold text-[#111318] dark:text-white hidden sm:block">My Account</span>
+                     <span class="material-symbols-outlined text-gray-400 text-lg">expand_more</span>
+                  </button>
+               </div>
+            </header>
+            <div class="flex-1 overflow-y-auto no-scrollbar">
+               <div class="container mx-auto max-w-7xl px-6 py-8 flex flex-col gap-8 h-full">
+                  <div class="flex flex-wrap justify-between items-end gap-4">
+                     <div class="flex flex-col gap-1">
+                        <h1 class="text-3xl font-black leading-tight tracking-[-0.033em] text-[#111318] dark:text-white">My Vehicles</h1>
+                        <p class="text-[#616f89] dark:text-gray-400 text-base font-normal">Manage your registered vehicles and track their status.</p>
+                     </div>
+                     <div class="flex gap-3">
+                        <button class="bg-primary hover:bg-blue-700 text-white font-bold py-2.5 px-5 rounded-lg shadow-lg shadow-blue-500/20 transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-xl">add</span>
+                        <span>Add Vehicle</span>
+                        </button>
+                     </div>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                     <div class="flex flex-col rounded-xl bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark shadow-sm overflow-hidden group hover:border-primary/50 transition-all">
+                        <div class="h-56 w-full bg-center bg-no-repeat bg-cover relative" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2iwzuWwRpsYK78jP-ekJQod8DZavSLKXyp5ASic9bmyTjlknYJO_BNeL5F3_P_URLiSYsLBCFYWlkaaZRoYaa27eIOLJousSamBIGLMc1SyV7Qhhm287zk9Kr5zAyqqoz2yrGVcnt-3mFxXVymZ5dhr4Bw3mF1uUKj2pqLb5NjezHS62Gz7gsTHCkIASG8VulOR-gIZdPtEdIasw_NyO9UJvoN919w1gxA0Zl4v5MPn-C8foLiq0r2nxAfT1avKcrIU8ysww1lEA");'>
+                           <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all"></div>
+                           <div class="absolute top-4 right-4 z-10">
+                              <button class="bg-surface-light/80 dark:bg-surface-dark/80 p-2 rounded-full hover:bg-white dark:hover:bg-gray-700 transition-colors backdrop-blur-sm text-gray-600 dark:text-gray-300 shadow-sm">
+                              <span class="material-symbols-outlined text-sm">more_vert</span>
+                              </button>
+                           </div>
+                           <div class="absolute bottom-4 left-4">
+                              <span class="px-2.5 py-1 bg-green-500/90 text-white text-xs font-bold rounded shadow-sm backdrop-blur-sm">Active</span>
+                           </div>
+                        </div>
+                        <div class="p-6 flex flex-col gap-5 flex-1">
+                           <div class="flex justify-between items-start">
+                              <div>
+                                 <h3 class="text-xl font-bold text-[#111318] dark:text-white">Honda City</h3>
+                                 <p class="text-[#616f89] dark:text-gray-400 text-sm font-medium mt-0.5">Sedan • 2021 Model</p>
+                              </div>
+                           </div>
+                           <div class="flex items-center gap-4 p-4 rounded-xl bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark">
+                              <div class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                                 <span class="material-symbols-outlined">pin</span>
+                              </div>
+                              <div>
+                                 <p class="text-[10px] uppercase font-bold text-[#616f89] dark:text-gray-500 tracking-wider">Registration Number</p>
+                                 <p class="text-lg font-bold text-[#111318] dark:text-white font-mono tracking-tight">DL 3C AB 1234</p>
+                              </div>
+                           </div>
+                           <div class="flex gap-3 mt-auto pt-2">
+                              <button class="flex-1 py-2.5 rounded-lg bg-primary text-white text-sm font-bold hover:bg-blue-700 transition-colors shadow-sm shadow-blue-500/20">
+                              View Challans
+                              </button>
+                              <button class="px-3 py-2.5 rounded-lg bg-transparent border border-border-light dark:border-border-dark text-[#616f89] dark:text-gray-400 hover:text-primary hover:border-primary hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-colors">
+                              <span class="material-symbols-outlined text-xl">edit</span>
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="flex flex-col rounded-xl bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark shadow-sm overflow-hidden group hover:border-primary/50 transition-all">
+                        <div class="h-56 w-full bg-center bg-no-repeat bg-cover relative" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBXyBqO4HLfwHVa_Nu-OVZU3rrUb8KU9_N0BNoo0VrCRz1nS-tD7SeRM2YncL4rfDw0bZN7Sp-qm5j7BzoUHdfwzQWRGtJ0OPmOpgVI3CUVAakW_b8RPFlapM6AZ9xUb65jVHqMEf8x0thdPKOmtN7wlu4A-Zi8OWN16PUwmpqijzrLit9FO657-w672M4Lqa1s_5B0XsEp_mtFN9h19GAzTqC2eLq5U_uSS4sdNjwMcvS7F1DphAaqmDAJRseAJeZup8PaWTrb4sw");'>
+                           <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all"></div>
+                           <div class="absolute top-4 right-4 z-10">
+                              <button class="bg-surface-light/80 dark:bg-surface-dark/80 p-2 rounded-full hover:bg-white dark:hover:bg-gray-700 transition-colors backdrop-blur-sm text-gray-600 dark:text-gray-300 shadow-sm">
+                              <span class="material-symbols-outlined text-sm">more_vert</span>
+                              </button>
+                           </div>
+                           <div class="absolute bottom-4 left-4">
+                              <span class="px-2.5 py-1 bg-green-500/90 text-white text-xs font-bold rounded shadow-sm backdrop-blur-sm">Active</span>
+                           </div>
+                        </div>
+                        <div class="p-6 flex flex-col gap-5 flex-1">
+                           <div class="flex justify-between items-start">
+                              <div>
+                                 <h3 class="text-xl font-bold text-[#111318] dark:text-white">Maruti Suzuki Swift</h3>
+                                 <p class="text-[#616f89] dark:text-gray-400 text-sm font-medium mt-0.5">Hatchback • 2019 Model</p>
+                              </div>
+                           </div>
+                           <div class="flex items-center gap-4 p-4 rounded-xl bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark">
+                              <div class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                                 <span class="material-symbols-outlined">pin</span>
+                              </div>
+                              <div>
+                                 <p class="text-[10px] uppercase font-bold text-[#616f89] dark:text-gray-500 tracking-wider">Registration Number</p>
+                                 <p class="text-lg font-bold text-[#111318] dark:text-white font-mono tracking-tight">UP 16 Z 9876</p>
+                              </div>
+                           </div>
+                           <div class="flex gap-3 mt-auto pt-2">
+                              <button class="flex-1 py-2.5 rounded-lg bg-primary text-white text-sm font-bold hover:bg-blue-700 transition-colors shadow-sm shadow-blue-500/20">
+                              View Challans
+                              </button>
+                              <button class="px-3 py-2.5 rounded-lg bg-transparent border border-border-light dark:border-border-dark text-[#616f89] dark:text-gray-400 hover:text-primary hover:border-primary hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-colors">
+                              <span class="material-symbols-outlined text-xl">edit</span>
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                     <button class="flex flex-col items-center justify-center rounded-xl bg-background-light dark:bg-background-dark border-2 border-dashed border-border-light dark:border-border-dark min-h-[400px] hover:border-primary/50 hover:bg-surface-light dark:hover:bg-surface-dark transition-all group gap-4 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="size-20 rounded-full bg-surface-light dark:bg-surface-dark shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform text-primary border border-border-light dark:border-border-dark z-10">
+                           <span class="material-symbols-outlined text-4xl">add</span>
+                        </div>
+                        <div class="text-center z-10">
+                           <h3 class="text-xl font-bold text-[#111318] dark:text-white">Register New Vehicle</h3>
+                           <p class="text-sm text-[#616f89] dark:text-gray-400 mt-2 px-8 max-w-xs mx-auto">Add another vehicle to your account to easily track and pay challans.</p>
+                        </div>
+                     </button>
+                  </div>
+                  
+               </div>
+            </div>
+         </main>
+      </div>
+   </body>
+</html>
